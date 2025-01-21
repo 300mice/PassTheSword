@@ -146,7 +146,7 @@ Material:
     - _Add: -0.09
     - _AddPrecomputedVelocity: 0
     - _Add_Cobble: 0
-    - _Add_Dirt: 0.5
+    - _Add_Dirt: -0.16
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -164,20 +164,20 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Height_Blend: 0
+    - _Height_Blend: 9.41
     - _Hieght_Blend: 0.01
     - _Metallic: 0
     - _Multi: 0.82
     - _Multi_1: 1.9
     - _Multi_Cobble: 4.36
-    - _Multi_Dirt: 2.25
+    - _Multi_Dirt: 3.13
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Pixels: 100
     - _Power: 0.4
     - _Power_1: -0.45
     - _Power_Cobble: 0.65
-    - _Power_Dirt: 1.25
+    - _Power_Dirt: 0.68
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
