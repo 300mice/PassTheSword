@@ -41,18 +41,19 @@ public class AIBrain : MonoBehaviour
                 {
                     break;
                 }
-
                 if (brain.bAlive == false)
                 {
                     break;
                 }
-                return brain.gameObject;
-                
+                if (!chosenTarget || (chosenTarget.transform.position - transform.position).magnitude >
+                    (enemy.transform.position - transform.position).magnitude)
+                {
+                    chosenTarget = enemy;
+                }
             }
             
         }
-
-        return null;
+        return chosenTarget;
     }
 
     IEnumerator BrainLoop(float waitTime)

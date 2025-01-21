@@ -4,8 +4,10 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public int EnemiesRemaining = 0;
+    public int PartyRemaining = 0;
 
     public AIBrain[] EnemyTypes;
+    public AIBrain PartyType;
 
     public static GameManager Instance
     {
@@ -20,12 +22,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        SpawnParty();
         SpawnWave();
     }
 
     void SpawnEnemy(AIBrain Enemy)
     {
-        AIBrain NewEnemy = Instantiate(Enemy, new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f)), Quaternion.identity);
+        AIBrain NewEnemy = Instantiate(Enemy, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
         NewEnemy.GetComponent<HealthComponent>().HasDied.AddListener(EnemyDied);
         EnemiesRemaining++;
     }
@@ -45,6 +48,21 @@ public class GameManager : MonoBehaviour
         {
             SpawnEnemy(EnemyTypes[Random.Range(0, EnemyTypes.Length - 1)]);
         }
+    }
+
+    void SpawnParty()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            AIBrain NewPartyMember = Instantiate(PartyType, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
+            NewPartyMember.GetComponent<HealthComponent>().HasDied.AddListener(PartyDied);
+            PartyRemaining++; 
+        }
+    }
+
+    void PartyDied()
+    {
+        PartyRemaining--;
     }
 // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
