@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEditor;
 
 // Defines logic for the behaviour of Party Members
+[RequireComponent(typeof(HealthComponent))]
 public class AIBrain : MonoBehaviour
 {
 
@@ -14,12 +15,15 @@ public class AIBrain : MonoBehaviour
     private NavMeshAgent agent;
     private HealthComponent healthComponent;
 
-    private bool bCanNavigate = true;
+    public float Damage = 5;
+
+    private bool bAlive = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        healthComponent = GetComponent<HealthComponent>();
         StartCoroutine(BrainLoop(1.0f));
         healthComponent.HasDied.AddListener(StopBrain);
     }
@@ -29,7 +33,7 @@ public class AIBrain : MonoBehaviour
         for (int i = 0; i < TargetPriorities.Length; i++)
         {
             GameObject enemy = GameObject.FindGameObjectWithTag(TargetPriorities[i]);
-            if (enemy != null)
+            if (enemy)
             {
                 return enemy.gameObject;
             }
@@ -40,16 +44,16 @@ public class AIBrain : MonoBehaviour
 
     IEnumerator BrainLoop(float waitTime)
     {
-        while (bCanNavigate)
+        while (bAlive)
         {
-            if (target == null)
+            if (!target)
             {
                 target = GetTarget();
             }
             agent.destination = target.transform.position;
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (agent.remainingDistance <= agent.stoppingDistance && target.GetComponent<AIBrain>())
             {
-                
+                Attack(target.GetComponent<AIBrain>());
             }
             yield return new WaitForSeconds(waitTime);
         }
@@ -57,11 +61,24 @@ public class AIBrain : MonoBehaviour
 
     void StopBrain()
     {
-        bCanNavigate = false;
+        bAlive = false;
     }
-    // Update is called once per frame
-    void Update()
+
+    void Attack(AIBrain TargetBrain)
     {
-        
+        if (!bAlive)
+        {
+            return;
+        }
+        if (!TargetBrain)
+        {
+            return;
+        }
+
+        if (!TargetBrain.healthComponent)
+        {
+            return;
+        }
+        TargetBrain.healthComponent.UpdateHealth(-Damage);
     }
 }
