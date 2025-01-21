@@ -5,12 +5,18 @@ using UnityEngine.PlayerLoop;
 public class HealthComponent : MonoBehaviour
 {
     public float health { get; private set; }= 0;
-    public float maxHealth { get; private set; } = 100;
+    
+    [SerializeField]
+    private float maxHealth = 100;
 
     public UnityEvent HasDied = new UnityEvent();
     public UnityEvent OnHealthChanged = new UnityEvent();
-    
-    
+
+    public bool bAlive = true;
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +25,10 @@ public class HealthComponent : MonoBehaviour
 
     public float UpdateHealth(float delta)
     {
+        if (!bAlive)
+        {
+            return 0;
+        } 
         health = Mathf.Clamp(health += delta, 0, maxHealth);
         OnHealthChanged.Invoke();
         IsDead();
@@ -30,6 +40,7 @@ public class HealthComponent : MonoBehaviour
         if (health <= 0)
         {
             HasDied.Invoke();
+            bAlive = false;
             return true;
         }
 

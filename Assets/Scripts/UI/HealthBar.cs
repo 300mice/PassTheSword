@@ -16,6 +16,6 @@ public class HealthBar : MonoBehaviour
 
     void OnHealthChanged()
     {
-        healthSlider.value = healthComponent.health / healthComponent.maxHealth;
+        healthSlider.value = healthComponent.health / healthComponent.GetMaxHealth();
     }
 }

@@ -88,8 +88,11 @@ public class AIBrain : MonoBehaviour
         {
             return;
         }
-
         if (!TargetBrain.healthComponent)
+        {
+            return;
+        }
+        if (!TargetBrain.bAlive)
         {
             return;
         }
