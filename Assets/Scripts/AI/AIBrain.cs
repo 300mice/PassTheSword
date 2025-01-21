@@ -12,6 +12,7 @@ public class AIBrain : MonoBehaviour
     
     private GameObject target;
     private NavMeshAgent agent;
+    private HealthComponent healthComponent;
 
     private bool bCanNavigate = true;
 
@@ -20,6 +21,7 @@ public class AIBrain : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(BrainLoop(1.0f));
+        healthComponent.HasDied.AddListener(StopBrain);
     }
 
     private GameObject GetTarget()
@@ -45,9 +47,17 @@ public class AIBrain : MonoBehaviour
                 target = GetTarget();
             }
             agent.destination = target.transform.position;
-        
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                
+            }
             yield return new WaitForSeconds(waitTime);
         }
+    }
+
+    void StopBrain()
+    {
+        bCanNavigate = false;
     }
     // Update is called once per frame
     void Update()
