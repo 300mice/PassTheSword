@@ -13,6 +13,8 @@ public class AIBrain : MonoBehaviour
     private GameObject target;
     private NavMeshAgent agent;
 
+    private bool bCanNavigate = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,13 +38,16 @@ public class AIBrain : MonoBehaviour
 
     IEnumerator BrainLoop(float waitTime)
     {
-        if (target == null)
+        while (bCanNavigate)
         {
-            target = GetTarget();
-        }
-        agent.destination = target.transform.position;
+            if (target == null)
+            {
+                target = GetTarget();
+            }
+            agent.destination = target.transform.position;
         
-        yield return new WaitForSeconds(waitTime);
+            yield return new WaitForSeconds(waitTime);
+        }
     }
     // Update is called once per frame
     void Update()
