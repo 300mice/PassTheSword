@@ -30,13 +30,26 @@ public class AIBrain : MonoBehaviour
 
     private GameObject GetTarget()
     {
+        GameObject chosenTarget = null;
         for (int i = 0; i < TargetPriorities.Length; i++)
         {
-            GameObject enemy = GameObject.FindGameObjectWithTag(TargetPriorities[i]);
-            if (enemy)
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(TargetPriorities[i]);
+            foreach (GameObject enemy in enemies)
             {
-                return enemy.gameObject;
+                AIBrain brain = enemy.GetComponent<AIBrain>();
+                if (!brain)
+                {
+                    break;
+                }
+
+                if (brain.bAlive == false)
+                {
+                    break;
+                }
+                return brain.gameObject;
+                
             }
+            
         }
 
         return null;
@@ -62,6 +75,7 @@ public class AIBrain : MonoBehaviour
     void StopBrain()
     {
         bAlive = false;
+        Destroy(gameObject, 3);
     }
 
     void Attack(AIBrain TargetBrain)
