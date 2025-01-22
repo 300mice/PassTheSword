@@ -178,7 +178,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Height_Blend: 50
+    - _Height_Blend: 452.5
     - _Hieght_Blend: 0.01
     - _Metallic: 0
     - _Multi: 0.82
@@ -192,10 +192,10 @@ Material:
     - _Pixels: 100
     - _Power: 0.4
     - _Power_1: -0.45
-    - _Power_Cobble: 0.84
+    - _Power_Cobble: 0.85
     - _Power_Dirt: 0.8
     - _Power_Grass: 3
-    - _Power_Mask_Grass: 1
+    - _Power_Mask_Grass: 0.73
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -207,8 +207,8 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Tiling1: 1
-    - _Tiling1_Cobble: 1
-    - _Tiling1_Dirt: 1
+    - _Tiling1_Cobble: 10
+    - _Tiling1_Dirt: 10
     - _Tiling_Offset: 0
     - _Tiling_Offset_Cobble: 0
     - _Tiling_Offset_Dirt: 0
@@ -228,8 +228,8 @@ Material:
     - _Color1_5: {r: 0, g: 0.13010877, b: 1, a: 0}
     - _Color1_6: {r: 0, g: 0, b: 0, a: 0}
     - _Color1_7: {r: 0.7808458, g: 1, b: 0, a: 0}
-    - _Color_Cobble_1: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
-    - _Color_Cobble_2: {r: 0, g: 0.054362833, b: 0.103773594, a: 0}
+    - _Color_Cobble_1: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
+    - _Color_Cobble_2: {r: 0.101726584, g: 0.1383876, b: 0.16981131, a: 0}
     - _Color_Dirt_1: {r: 0.16981131, g: 0.12575649, b: 0.12820399, a: 1}
     - _Color_Dirt_2: {r: 0.454902, g: 0.34509805, b: 0.28627452, a: 1}
     - _Color_Dirt_3: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0}
