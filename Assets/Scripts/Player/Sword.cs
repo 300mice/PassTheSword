@@ -24,11 +24,14 @@ public class Sword : MonoBehaviour
     public AIBrain Wielder {get; private set;}
     
     public DamageComponent DamageComponent {get; private set;}
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private SwordMove mover;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         DamageComponent = GetComponent<DamageComponent>();
+        mover = GetComponent<SwordMove>();
     }
 
     // Update is called once per frame
@@ -54,6 +57,11 @@ public class Sword : MonoBehaviour
             Vector3 _normalizedMouse = (startPos - Input.mousePosition).normalized;
             dragDirection = new Vector3(_normalizedMouse.x, 0, _normalizedMouse.y);
         }
+
+        if(Wielder != null)
+        {
+            
+        }
         
     }
 
@@ -73,20 +81,26 @@ public class Sword : MonoBehaviour
             return;
         }
         Wielder = NewWielder;
-        transform.position = Wielder.transform.position;
-        transform.parent = Wielder.transform;
+        //transform.position = Wielder.transform.position;
+        //transform.parent = Wielder.transform;
         rb.linearVelocity = Vector3.zero;
         bEquipped = true;
-        
+
+        mover.currentTarget = Wielder.swordPos;
+
+
     }
 
     public void Unequip()
     {
         Wielder = null;
-        transform.SetParent(null);
+        //transform.SetParent(null);
         bEquipped = false;
         lastEquippedTime = Time.time;
+        mover.currentTarget = null;
     }
+
+    
 
     
 }

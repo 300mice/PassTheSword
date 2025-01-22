@@ -22,6 +22,12 @@ public class AIBrain : MonoBehaviour
 
     private bool bAlive = true;
 
+    public Transform swordPos;
+
+    private UnitAnimationController animator;
+    // minimum movement speed to play run animation
+    public float minRunAnimSpeed = 0.5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +36,7 @@ public class AIBrain : MonoBehaviour
         damageComponent = GetComponent<DamageComponent>();
         StartCoroutine(BrainLoop(0.33f));
         healthComponent.HasDied.AddListener(StopBrain);
+        animator = GetComponent<UnitAnimationController>();
     }
 
     private GameObject GetTarget()
@@ -91,6 +98,15 @@ public class AIBrain : MonoBehaviour
 
     void Action(GameObject Target)
     {
+        if (agent.velocity.magnitude > minRunAnimSpeed)
+        {
+            animator.PlayAnimation("run", 0);
+        }
+        else
+        {
+            //animator.PlayAnimation("idle", 0);
+        }
+
         AIBrain TargetBrain = Target.GetComponent<AIBrain>();
         if (!bAlive)
         {
@@ -117,9 +133,20 @@ public class AIBrain : MonoBehaviour
         }
         if (GameManager.Instance.Sword.Wielder == this)
         {
-            GameManager.Instance.Sword.DamageComponent.DealDamage(TargetBrain.healthComponent);
+            if (GameManager.Instance.Sword.DamageComponent.DealDamage(TargetBrain.healthComponent))
+            {
+                animator.PlayAnimation("attack", 0);
+            }
+
         }
-        damageComponent.DealDamage(TargetBrain.healthComponent);
+
+
+
+        if (damageComponent.DealDamage(TargetBrain.healthComponent))
+        {
+            animator.PlayAnimation("attack", 0);
+        }
+        
     }
 
     bool PickUpSword()
@@ -131,4 +158,12 @@ public class AIBrain : MonoBehaviour
 
         return !GameManager.Instance.Sword.bEquipped;
     }
+
+    public GameObject ReturnTarget()
+    {
+        return target;
+    }
+
+
+    
 }

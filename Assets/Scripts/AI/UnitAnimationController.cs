@@ -1,0 +1,47 @@
+using UnityEngine;
+
+public class UnitAnimationController : MonoBehaviour
+{
+
+    public string[] names;
+    public AnimationClip[] animations;
+    private Animator animator;
+    public SpriteRenderer sprite;
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        animator = sprite.gameObject.GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+
+    public void PlayAnimation(string name, float frame)
+    {
+        AnimationClip anim = GetAnimation(name);
+
+        if (anim != null && animator.GetCurrentAnimatorClipInfo(0)[0].clip != anim)
+        {
+            animator.Play(anim.name, 0, frame);
+            //t_currentAnimTime = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        }
+
+    }
+
+    private AnimationClip GetAnimation(string name)
+    {
+        for(int i = 0; i< animations.Length; i++)
+        {
+            if (names[i] == name)
+                return animations[i];
+        }
+
+        return null;
+    }
+}

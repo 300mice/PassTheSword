@@ -12,17 +12,18 @@ public class DamageComponent : MonoBehaviour
         
     }
     
-    public void DealDamage(HealthComponent AttackedComponent)
+    public bool DealDamage(HealthComponent AttackedComponent)
     {
         if (!AttackedComponent)
         {
-            return;
+            return false;
         }
         if (Time.unscaledTime - lastAttacked < AttackSpeed)
         {
-            return;
+            return false;
         }
         lastAttacked = Time.unscaledTime;
         AttackedComponent.UpdateHealth(-Damage);
+        return true;
     }
 }
