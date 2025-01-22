@@ -18,7 +18,7 @@ public class AIBrain : MonoBehaviour
     private HealthComponent healthComponent;
     private DamageComponent damageComponent;
 
-    public float Damage = 5;
+    public bool CanEquipSword = false;
 
     private bool bAlive = true;
 
@@ -62,14 +62,18 @@ public class AIBrain : MonoBehaviour
     {
         while (bAlive)
         {
+            if (PickUpSword())
+            {
+                target = GameManager.Instance.Sword.gameObject;
+            }
             if (!target)
             {
                 target = GetTarget();
             }
             agent.destination = target.transform.position;
-            if (agent.remainingDistance <= agent.stoppingDistance && target.GetComponent<AIBrain>())
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                Attack(target.GetComponent<AIBrain>());
+                Action(target);
             }
             yield return new WaitForSeconds(waitTime);
         }
@@ -78,19 +82,48 @@ public class AIBrain : MonoBehaviour
     void StopBrain(HealthComponent HealthComponent)
     {
         bAlive = false;
+        if (GameManager.Instance.Sword.Wielder == this)
+        {
+            GameManager.Instance.Sword.Unequip();
+        }
         Destroy(gameObject, 3);
     }
 
-    void Attack(AIBrain TargetBrain)
+    void Action(GameObject Target)
     {
+        AIBrain TargetBrain = Target.GetComponent<AIBrain>();
         if (!bAlive)
         {
             return;
         }
-        if (!TargetBrain || !TargetBrain.bAlive)
+        if (!TargetBrain)
+        {
+            Sword sword = Target.gameObject.GetComponent<Sword>();
+            if (sword)
+            {
+                sword.Equip(this);
+            }
+            return;
+        }
+
+        if (!TargetBrain.bAlive)
         {
             return;
         }
+        if (GameManager.Instance.Sword.Wielder == this)
+        {
+            GameManager.Instance.Sword.DamageComponent.DealDamage(TargetBrain.healthComponent);
+        }
         damageComponent.DealDamage(TargetBrain.healthComponent);
+    }
+
+    bool PickUpSword()
+    {
+        if (!CanEquipSword)
+        {
+            return false;
+        }
+
+        return !GameManager.Instance.Sword.bEquipped;
     }
 }

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public AIBrain PartyType;
 
     public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
+    
+    public Sword Sword { get; private set; }
 
     public static GameManager Instance
     {
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        Sword = GameObject.Find("Sword").GetComponent<Sword>();
         SpawnParty();
         SpawnWave();
     }

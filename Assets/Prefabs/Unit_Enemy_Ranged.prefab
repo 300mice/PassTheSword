@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 87160338590987731, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 493008036189040078, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: Damage
       value: 5
@@ -40,10 +44,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4627153191241639863, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627153191241639863, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6000680301753801657, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 921073600287988000, guid: 13c9c6820ad4aa44880768b71262f0de, type: 3}
+      objectReference: {fileID: -876546973899608171, guid: 2e16c35251bfe3044b6d90696afef033, type: 3}
     - target: {fileID: 8645965472152301794, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -82,6 +94,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645965472152301794, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120188027478158626, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: CanEquipSword
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

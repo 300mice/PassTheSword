@@ -5,17 +5,26 @@ public class Sword : MonoBehaviour
     private Vector3 startPos;
     private float dragMagnitude;
     private Vector3 dragDirection;
+
+    [SerializeField] private float UnEquippedMagnitude = 100;
     
     [SerializeField]
     private float ThrowForce = 10f;
 
     private Rigidbody rb;
 
-    private bool bHeld;
+    private bool bMouseHeld;
+
+    public bool bEquipped { get; private set; } = false;
+    
+    public AIBrain Wielder {get; private set;}
+    
+    public DamageComponent DamageComponent {get; private set;}
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        DamageComponent = GetComponent<DamageComponent>();
     }
 
     // Update is called once per frame
@@ -24,20 +33,20 @@ public class Sword : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             startPos = Input.mousePosition;
-            bHeld = true;
+            bMouseHeld = true;
         }
         if(Input.GetMouseButtonUp(0))
         {
-            bHeld = false;
-            if (dragMagnitude > 100.0f)
+            bMouseHeld = false;
+            if (dragMagnitude > 40.0f)
             {
                 Throw();
             }
         }
 
-        if (bHeld)
+        if (bMouseHeld)
         {
-            dragMagnitude = (Input.mousePosition - startPos).magnitude;
+            dragMagnitude = bEquipped? (Input.mousePosition - startPos).magnitude : UnEquippedMagnitude;
             Vector3 _normalizedMouse = (startPos - Input.mousePosition).normalized;
             dragDirection = new Vector3(_normalizedMouse.x, 0, _normalizedMouse.y);
         }
@@ -46,7 +55,26 @@ public class Sword : MonoBehaviour
 
     void Throw()
     {
-        rb.AddForce(dragDirection * dragMagnitude * ThrowForce, ForceMode.Impulse);
+        rb.ResetInertiaTensor();
+        Unequip();
+        Vector3 targetDirection = Quaternion.Inverse(transform.rotation) * dragDirection;
+        rb.AddForce(targetDirection * dragMagnitude * ThrowForce, ForceMode.Impulse);
+        
+    }
+    
+    public void Equip(AIBrain NewWielder)
+    {
+        Wielder = NewWielder;
+        transform.position = Wielder.transform.position;
+        transform.parent = Wielder.transform;
+        bEquipped = true;
+    }
+
+    public void Unequip()
+    {
+        Wielder = null;
+        transform.SetParent(null);
+        bEquipped = false;
     }
 
     
