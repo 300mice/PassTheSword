@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
 public class HealthBar : MonoBehaviour
 {
     HealthComponent healthComponent;
     Slider healthSlider;
+
+    public Image healthFill;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,5 +18,6 @@ public class HealthBar : MonoBehaviour
     void OnHealthChanged()
     {
         healthSlider.value = healthComponent.health / healthComponent.GetMaxHealth();
+        healthFill.fillAmount = healthComponent.health / healthComponent.GetMaxHealth();
     }
 }

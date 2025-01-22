@@ -160,7 +160,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 0
   m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   TargetPriorities:
   - Enemy_Melee
   - Enemy_Ranged
-  Damage: 5
+  CanEquipSword: 0
 --- !u!114 &7556719973396251969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +231,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarComponent
       objectReference: {fileID: 0}
+    - target: {fileID: 3045188783263172608, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045188783263172608, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045188783263172608, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3644546623856888633, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -271,6 +283,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4524516358491566910, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989675170133688825, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
+      propertyPath: healthFill
+      value: 
+      objectReference: {fileID: 7597629754382636575}
     - target: {fileID: 6487178903809581032, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -301,3 +321,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3644546623856888633, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
   m_PrefabInstance: {fileID: 2582922767442677465}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7597629754382636575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5379644946525116614, guid: cbe6df17b4cbcd3428547461a2147434, type: 3}
+  m_PrefabInstance: {fileID: 2582922767442677465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
