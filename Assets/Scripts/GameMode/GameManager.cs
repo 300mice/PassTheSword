@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public AIBrain[] EnemyTypes;
     public AIBrain PartyType;
+
+    public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
 
     public static GameManager Instance
     {
@@ -30,11 +34,14 @@ public class GameManager : MonoBehaviour
     {
         AIBrain NewEnemy = Instantiate(Enemy, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
         NewEnemy.GetComponent<HealthComponent>().HasDied.AddListener(EnemyDied);
+        CurrentBrains.Add(NewEnemy);
         EnemiesRemaining++;
     }
 
-    void EnemyDied()
+    void EnemyDied(HealthComponent HealthComponent)
     {
+        AIBrain deadAI = HealthComponent.GetComponent<AIBrain>();
+        RemoveDeadBrain(deadAI);
         EnemiesRemaining--;
         if (EnemiesRemaining <= 0)
         {
@@ -56,13 +63,24 @@ public class GameManager : MonoBehaviour
         {
             AIBrain NewPartyMember = Instantiate(PartyType, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
             NewPartyMember.GetComponent<HealthComponent>().HasDied.AddListener(PartyDied);
+            CurrentBrains.Add(NewPartyMember);
             PartyRemaining++; 
         }
     }
 
-    void PartyDied()
+    void PartyDied(HealthComponent HealthComponent)
     {
+        AIBrain deadAI = HealthComponent.GetComponent<AIBrain>();
+        RemoveDeadBrain(deadAI);
         PartyRemaining--;
+    }
+
+    void RemoveDeadBrain(AIBrain deadAI)
+    {
+        if (deadAI && CurrentBrains.Contains(deadAI))
+        {
+            CurrentBrains.Remove(deadAI);
+        }
     }
 // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

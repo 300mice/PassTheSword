@@ -9,7 +9,7 @@ public class HealthComponent : MonoBehaviour
     [SerializeField]
     private float maxHealth = 100;
 
-    public UnityEvent HasDied = new UnityEvent();
+    public HealthComponentEvent HasDied = new HealthComponentEvent();
     public UnityEvent OnHealthChanged = new UnityEvent();
 
     public bool bAlive = true;
@@ -39,7 +39,7 @@ public class HealthComponent : MonoBehaviour
     {
         if (health <= 0)
         {
-            HasDied.Invoke();
+            HasDied.Invoke(this);
             bAlive = false;
             return true;
         }
@@ -47,3 +47,6 @@ public class HealthComponent : MonoBehaviour
         return false;
     }
 }
+
+[System.Serializable]
+public class HealthComponentEvent : UnityEvent<HealthComponent> {}

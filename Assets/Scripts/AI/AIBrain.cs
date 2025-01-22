@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 
 // Defines logic for the behaviour of Party Members
@@ -14,6 +16,7 @@ public class AIBrain : MonoBehaviour
     private GameObject target;
     private NavMeshAgent agent;
     private HealthComponent healthComponent;
+    private DamageComponent damageComponent;
 
     public float Damage = 5;
 
@@ -24,7 +27,8 @@ public class AIBrain : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         healthComponent = GetComponent<HealthComponent>();
-        StartCoroutine(BrainLoop(1.0f));
+        damageComponent = GetComponent<DamageComponent>();
+        StartCoroutine(BrainLoop(0.33f));
         healthComponent.HasDied.AddListener(StopBrain);
     }
 
@@ -33,22 +37,20 @@ public class AIBrain : MonoBehaviour
         GameObject chosenTarget = null;
         for (int i = 0; i < TargetPriorities.Length; i++)
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag(TargetPriorities[i]);
-            foreach (GameObject enemy in enemies)
+            List<AIBrain> _targets =  GameManager.Instance.CurrentBrains;
+            foreach (AIBrain target in _targets)
             {
-                AIBrain brain = enemy.GetComponent<AIBrain>();
-                if (!brain)
+                if (!target || !target.bAlive)
                 {
                     break;
                 }
-                if (brain.bAlive == false)
+                if (target.CompareTag(TargetPriorities[i]))
                 {
-                    break;
-                }
-                if (!chosenTarget || (chosenTarget.transform.position - transform.position).magnitude >
-                    (enemy.transform.position - transform.position).magnitude)
-                {
-                    chosenTarget = enemy;
+                    if (!chosenTarget || (chosenTarget.transform.position - transform.position).magnitude >
+                        (target.transform.position - transform.position).magnitude)
+                    {
+                        chosenTarget = target.gameObject;
+                    }
                 }
             }
             
@@ -73,7 +75,7 @@ public class AIBrain : MonoBehaviour
         }
     }
 
-    void StopBrain()
+    void StopBrain(HealthComponent HealthComponent)
     {
         bAlive = false;
         Destroy(gameObject, 3);
@@ -85,18 +87,10 @@ public class AIBrain : MonoBehaviour
         {
             return;
         }
-        if (!TargetBrain)
+        if (!TargetBrain || !TargetBrain.bAlive)
         {
             return;
         }
-        if (!TargetBrain.healthComponent)
-        {
-            return;
-        }
-        if (!TargetBrain.bAlive)
-        {
-            return;
-        }
-        TargetBrain.healthComponent.UpdateHealth(-Damage);
+        damageComponent.DealDamage(TargetBrain.healthComponent);
     }
 }

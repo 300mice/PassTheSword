@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 3016717224599623461}
   - component: {fileID: 1691684033010785712}
   - component: {fileID: 7556719973396251969}
+  - component: {fileID: 8015561986376998236}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -183,6 +184,7 @@ MonoBehaviour:
   TargetPriorities:
   - Enemy_Melee
   - Enemy_Ranged
+  Damage: 5
 --- !u!114 &7556719973396251969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,12 +197,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ca466985213db488c4639e12bd94e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   HasDied:
     m_PersistentCalls:
       m_Calls: []
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  bAlive: 1
+--- !u!114 &8015561986376998236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123764256687789054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73905a59a36859647939d7c17365425f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
+  AttackSpeed: 1
 --- !u!1001 &2582922767442677465
 PrefabInstance:
   m_ObjectHideFlags: 0
