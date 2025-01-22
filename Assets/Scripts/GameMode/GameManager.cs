@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         Sword = GameObject.Find("Sword").GetComponent<Sword>();
         SpawnParty();
-        SpawnWave();
+        StartCoroutine(SpawnWave());
     }
 
     void SpawnEnemy(AIBrain Enemy)
@@ -46,18 +47,21 @@ public class GameManager : MonoBehaviour
         AIBrain deadAI = HealthComponent.GetComponent<AIBrain>();
         RemoveDeadBrain(deadAI);
         EnemiesRemaining--;
-        if (EnemiesRemaining <= 0)
-        {
-            SpawnWave();
-        }
     }
 
-    void SpawnWave()
+    IEnumerator SpawnWave()
     {
-        for (int i = 0; i < 5; i++)
+        while (true)
         {
-            SpawnEnemy(EnemyTypes[Random.Range(0, EnemyTypes.Length - 1)]);
+            for (int i = 0; i < 5; i++)
+            {
+                SpawnEnemy(EnemyTypes[Random.Range(0, EnemyTypes.Length)]);
+                yield return new WaitForSeconds(0.5f);
+                
+            }
+            yield return new WaitForSeconds(5.0f);
         }
+        
     }
 
     void SpawnParty()
@@ -84,16 +88,5 @@ public class GameManager : MonoBehaviour
         {
             CurrentBrains.Remove(deadAI);
         }
-    }
-// Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

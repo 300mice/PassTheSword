@@ -66,7 +66,7 @@ public class AIBrain : MonoBehaviour
             {
                 target = GameManager.Instance.Sword.gameObject;
             }
-            if (!target)
+            else
             {
                 target = GetTarget();
             }

@@ -7,6 +7,8 @@ public class Sword : MonoBehaviour
     private Vector3 dragDirection;
 
     [SerializeField] private float UnEquippedMagnitude = 100;
+
+    private float MaxMagnitude = 450f;
     
     [SerializeField]
     private float ThrowForce = 10f;
@@ -14,6 +16,8 @@ public class Sword : MonoBehaviour
     private Rigidbody rb;
 
     private bool bMouseHeld;
+
+    private float lastEquippedTime;
 
     public bool bEquipped { get; private set; } = false;
     
@@ -46,7 +50,7 @@ public class Sword : MonoBehaviour
 
         if (bMouseHeld)
         {
-            dragMagnitude = bEquipped? (Input.mousePosition - startPos).magnitude : UnEquippedMagnitude;
+            dragMagnitude = bEquipped? Mathf.Clamp((Input.mousePosition - startPos).magnitude, UnEquippedMagnitude, MaxMagnitude) : UnEquippedMagnitude;
             Vector3 _normalizedMouse = (startPos - Input.mousePosition).normalized;
             dragDirection = new Vector3(_normalizedMouse.x, 0, _normalizedMouse.y);
         }
@@ -64,11 +68,16 @@ public class Sword : MonoBehaviour
     
     public void Equip(AIBrain NewWielder)
     {
+        if (lastEquippedTime + 1 > Time.time)
+        {
+            return;
+        }
         Wielder = NewWielder;
         transform.position = Wielder.transform.position;
         transform.parent = Wielder.transform;
         rb.linearVelocity = Vector3.zero;
         bEquipped = true;
+        
     }
 
     public void Unequip()
@@ -76,6 +85,7 @@ public class Sword : MonoBehaviour
         Wielder = null;
         transform.SetParent(null);
         bEquipped = false;
+        lastEquippedTime = Time.time;
     }
 
     

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnEquippedMagnitude: 50
-  ThrowForce: 4
+  ThrowForce: 3
 --- !u!54 &3509798214418143825
 Rigidbody:
   m_ObjectHideFlags: 0
