@@ -71,7 +71,7 @@ public class AIBrain : MonoBehaviour
                 target = GetTarget();
             }
             agent.destination = target.transform.position;
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if ((agent.destination - transform.position).magnitude <= agent.stoppingDistance)
             {
                 Action(target);
             }
@@ -101,6 +101,11 @@ public class AIBrain : MonoBehaviour
             Sword sword = Target.gameObject.GetComponent<Sword>();
             if (sword)
             {
+                if (!PickUpSword())
+                {
+                    target = null;
+                    return;
+                }
                 sword.Equip(this);
             }
             return;

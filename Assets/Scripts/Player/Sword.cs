@@ -56,9 +56,9 @@ public class Sword : MonoBehaviour
     void Throw()
     {
         rb.ResetInertiaTensor();
+        //Vector3 targetDirection = Quaternion.Inverse(transform.rotation) * dragDirection;
+        rb.AddForce(dragDirection * dragMagnitude * ThrowForce, ForceMode.Impulse);
         Unequip();
-        Vector3 targetDirection = Quaternion.Inverse(transform.rotation) * dragDirection;
-        rb.AddForce(targetDirection * dragMagnitude * ThrowForce, ForceMode.Impulse);
         
     }
     
@@ -67,6 +67,7 @@ public class Sword : MonoBehaviour
         Wielder = NewWielder;
         transform.position = Wielder.transform.position;
         transform.parent = Wielder.transform;
+        rb.linearVelocity = Vector3.zero;
         bEquipped = true;
     }
 
