@@ -172,7 +172,7 @@ Material:
     - _Add_Cobble: 0.21
     - _Add_Dirt: 0.15
     - _Add_Grass: 0.04
-    - _Add_Mask_Grass: -0.17
+    - _Add_Mask_Grass: -0.11
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
