@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FlipXManager : MonoBehaviour
 {
 
     private AIBrain brain;
     public SpriteRenderer sprite;
+    private Material material;
+    public GameObject swordPos;
 
 
     // used to track facing for sprite and sword positions
@@ -14,7 +17,8 @@ public class FlipXManager : MonoBehaviour
     void Start()
     {
         brain = GetComponent<AIBrain>();
-
+        material = sprite.material;
+        material.SetInt("_IsFacingRight?", currentFacing);
     }
 
     // Update is called once per frame
@@ -33,7 +37,8 @@ public class FlipXManager : MonoBehaviour
     void FlipX()
     {
 
-        sprite.transform.localScale = new Vector3(-currentFacing, 1, 1);
+        swordPos.transform.localScale = new Vector3(-currentFacing, 1, 1);
 
+        material.SetInt("_IsFacingRight?", currentFacing);
     }
 }
