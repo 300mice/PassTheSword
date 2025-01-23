@@ -127,8 +127,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Blade_Colour_1: {r: 0.36320752, g: 0.68957615, b: 1, a: 1}
-    - _Blade_Colour_2: {r: 0, g: 0.15149829, b: 0.5943396, a: 0}
+    - _Blade_Colour_1: {r: 1, g: 0.08789876, b: 0, a: 1}
+    - _Blade_Colour_2: {r: 0.23584908, g: 0, b: 0.043449204, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Gem_Colour_1: {r: 0.12099999, g: 1, b: 0.6803637, a: 1}

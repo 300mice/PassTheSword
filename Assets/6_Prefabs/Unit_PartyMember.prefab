@@ -341,6 +341,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -876546973899608171, guid: ca2ed216f98028c4dae6c5224a952b3c, type: 3}
+    - target: {fileID: 4863995680992049409, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c45f01c3010b0d4cabe92dc01cc08ab, type: 2}
     - target: {fileID: 5123764256687789054, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_Name
       value: Unit_PartyMember
@@ -361,6 +365,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 7597629754382636575, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 668fcea6f60e77947bbb96a396e9403d, type: 2}
     - target: {fileID: 7656301919442974698, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
