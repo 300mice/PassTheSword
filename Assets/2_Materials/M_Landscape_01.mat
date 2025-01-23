@@ -86,7 +86,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_103902135ba04379a55befd7ab9e1cd3_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: ecc13f31750ad7947ad33c2c3a8c84c9, type: 3}
+        m_Texture: {fileID: 2800000, guid: cb34ab0ee899a9a4ba4552c24872c3b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_352c7fddde5b4bf7a901261e1e055d4e_Texture_1_Texture2D:
@@ -99,6 +99,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_4af65a6a20f845a69e9fb561f6f74942_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: ae623e605d0943e419005f454db9a954, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_6893bbbbf9144f5b926fe4328d4a620e_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: da4a73d2844e2fa448abcc82fe095336, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ab82113684b8452d990f81f269e667db_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 0167ab7bcedd5af498c1140fcc5d5ab5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_c5bc3049952644caa5a11b2a1bbd4f7a_Texture_1_Texture2D:
@@ -115,6 +123,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_cea0a1e0b66d4e34b4409b010412de6d_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: c76dac6e30abb7c44995c50ff6ca5104, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_da246d9e1cfb4a96a82303755565e266_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: ee6d6d32b7921304a817a15e9f828518, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_e81a8f7deed14bc990c906e14370ebfb_Texture_1_Texture2D:
@@ -157,10 +169,10 @@ Material:
     m_Floats:
     - _Add: -0.09
     - _AddPrecomputedVelocity: 0
-    - _Add_Cobble: 0
+    - _Add_Cobble: 0.21
     - _Add_Dirt: 0.15
     - _Add_Grass: 0.04
-    - _Add_Mask_Grass: 0.03
+    - _Add_Mask_Grass: -0.11
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -183,19 +195,20 @@ Material:
     - _Metallic: 0
     - _Multi: 0.82
     - _Multi_1: 1.9
-    - _Multi_Cobble: 6.07
-    - _Multi_Dirt: 0.41
-    - _Multi_Grass: 1
-    - _Multi_Mask_Grass: 1
+    - _Multi_Cobble: 19.84
+    - _Multi_Dirt: 0.86
+    - _Multi_Grass: 0.7
+    - _Multi_Mask_Grass: 0.97
+    - _Normal_Strength: 77.61
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Pixels: 100
     - _Power: 0.4
     - _Power_1: -0.45
-    - _Power_Cobble: 0.85
-    - _Power_Dirt: 0.8
-    - _Power_Grass: 3
-    - _Power_Mask_Grass: 0.73
+    - _Power_Cobble: 0.92
+    - _Power_Dirt: 1
+    - _Power_Grass: 2.23
+    - _Power_Mask_Grass: 1.01
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -207,11 +220,15 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Tiling1: 1
-    - _Tiling1_Cobble: 10
-    - _Tiling1_Dirt: 10
+    - _Tiling1_Cobble: 25
+    - _Tiling1_Dirt: 25
     - _Tiling_Offset: 0
     - _Tiling_Offset_Cobble: 0
     - _Tiling_Offset_Dirt: 0
+    - _Tiling_Offset_X: 0
+    - _Tiling_Offset_Y: 0
+    - _Tiling_X: 15
+    - _Tiling_Y: -15
     - _Vertex_Dirt: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -228,13 +245,13 @@ Material:
     - _Color1_5: {r: 0, g: 0.13010877, b: 1, a: 0}
     - _Color1_6: {r: 0, g: 0, b: 0, a: 0}
     - _Color1_7: {r: 0.7808458, g: 1, b: 0, a: 0}
-    - _Color_Cobble_1: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
-    - _Color_Cobble_2: {r: 0.101726584, g: 0.1383876, b: 0.16981131, a: 0}
+    - _Color_Cobble_1: {r: 0.3740755, g: 0.41039142, b: 0.4339623, a: 0}
+    - _Color_Cobble_2: {r: 0.048133325, g: 0.027866667, b: 0.056999996, a: 1}
     - _Color_Dirt_1: {r: 0.16981131, g: 0.12575649, b: 0.12820399, a: 1}
     - _Color_Dirt_2: {r: 0.454902, g: 0.34509805, b: 0.28627452, a: 1}
     - _Color_Dirt_3: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0}
-    - _Color_Grass_1: {r: 0, g: 0.1981132, b: 0.061749592, a: 0}
-    - _Color_Grass_2: {r: 0.11337753, g: 0.2735849, b: 0, a: 0}
+    - _Color_Grass_1: {r: 0, g: 0.2, b: 0.12854385, a: 0}
+    - _Color_Grass_2: {r: 0.2229063, g: 0.27450982, b: 0, a: 0}
     - _Color_Grass_3: {r: 0, g: 0.018627167, b: 1, a: 0}
     - _Colour1: {r: 0, g: 0.2735849, b: 0.18718961, a: 1}
     - _Colour2: {r: 0.20225169, g: 0.4245283, b: 0.27579236, a: 1}
