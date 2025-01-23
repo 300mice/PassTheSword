@@ -12,8 +12,10 @@ public class DamageComponent : MonoBehaviour
         
     }
     
-    public bool DealDamage(HealthComponent AttackedComponent)
+    public bool DealDamage(GameObject AttackedObject)
     {
+        
+        HealthComponent AttackedComponent = AttackedObject.GetComponent<HealthComponent>();
         if (!AttackedComponent)
         {
             return false;

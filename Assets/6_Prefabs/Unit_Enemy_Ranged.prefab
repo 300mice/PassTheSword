@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: Damage
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1084798692822794162, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: healthFillColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084798692822794162, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: healthFillColor.g
+      value: 0.036443327
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084798692822794162, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: healthFillColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1167575104983343523, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

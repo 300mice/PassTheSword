@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public AIBrain PartyType;
 
     public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
-    
+
     public Sword Sword { get; private set; }
 
     public static GameManager Instance
@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy(AIBrain Enemy)
     {
-        AIBrain NewEnemy = Instantiate(Enemy, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
+        AIBrain NewEnemy = Instantiate(Enemy, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)),
+            Quaternion.identity);
         NewEnemy.GetComponent<HealthComponent>().HasDied.AddListener(EnemyDied);
         CurrentBrains.Add(NewEnemy);
         EnemiesRemaining++;
@@ -57,21 +58,23 @@ public class GameManager : MonoBehaviour
             {
                 SpawnEnemy(EnemyTypes[Random.Range(0, EnemyTypes.Length)]);
                 yield return new WaitForSeconds(0.5f);
-                
+
             }
+
             yield return new WaitForSeconds(5.0f);
         }
-        
+
     }
 
     void SpawnParty()
     {
         for (int i = 0; i < 4; i++)
         {
-            AIBrain NewPartyMember = Instantiate(PartyType, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
+            AIBrain NewPartyMember = Instantiate(PartyType,
+                new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
             NewPartyMember.GetComponent<HealthComponent>().HasDied.AddListener(PartyDied);
             CurrentBrains.Add(NewPartyMember);
-            PartyRemaining++; 
+            PartyRemaining++;
         }
     }
 
@@ -89,4 +92,26 @@ public class GameManager : MonoBehaviour
             CurrentBrains.Remove(deadAI);
         }
     }
+
+    public AIBrain GetClosestBrainWithTag(Transform inTransform, string tag)
+    {
+        AIBrain closestBrain = null;
+        foreach (AIBrain PartyMember in GameManager.Instance.CurrentBrains)
+        {
+            if (!PartyMember.CompareTag(tag))
+            {
+                break;
+            }
+
+            if (closestBrain == null || Vector3.Distance(closestBrain.transform.position, inTransform.position) >
+                Vector3.Distance(PartyMember.transform.position, inTransform.position))
+            {
+                closestBrain = PartyMember;
+            }
+
+
+        }
+        return closestBrain;
+    }
+
 }
