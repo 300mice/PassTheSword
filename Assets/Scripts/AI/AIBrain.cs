@@ -15,8 +15,6 @@ public class AIBrain : MonoBehaviour
 
     [TagSelector] 
     public string[] TargetPriorities;
-    
-    private GameObject target;
     private NavMeshAgent agent;
     private HealthComponent healthComponent;
     private DamageComponent damageComponent;
@@ -54,21 +52,10 @@ public class AIBrain : MonoBehaviour
         GameObject chosenTarget = null;
         for (int i = 0; i < TargetPriorities.Length; i++)
         {
-            List<AIBrain> _targets =  GameManager.Instance.CurrentBrains;
-            foreach (AIBrain target in _targets)
+            chosenTarget = GameManager.Instance.GetClosestBrainWithTag(transform, TargetPriorities[i]).gameObject;
+            if (chosenTarget)
             {
-                if (!target || !target.bAlive)
-                {
-                    break;
-                }
-                if (target.CompareTag(TargetPriorities[i]))
-                {
-                    if (!chosenTarget || (chosenTarget.transform.position - transform.position).magnitude >
-                        (target.transform.position - transform.position).magnitude)
-                    {
-                        chosenTarget = target.gameObject;
-                    }
-                }
+                return chosenTarget;
             }
             
         }
@@ -160,11 +147,6 @@ public class AIBrain : MonoBehaviour
         }
 
         return !GameManager.Instance.Sword.bEquipped;
-    }
-
-    public GameObject ReturnTarget()
-    {
-        return target;
     }
 
     public void AddToQueue(ActionType action, GameObject target)
@@ -282,11 +264,16 @@ public class AIBrain : MonoBehaviour
         {
             GameObject target = GetTarget();
             CurrentAction.Target = target;
+            Debug.Log(CurrentAction.Target + " brain");
+            if (!CurrentAction.Target)
+            {
+                yield return new WaitForSeconds(0.25f);
+                continue;
+            }
             agent.destination = target.transform.position;
             if ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
             {
                 UpdateState(BrainState.Attacking);
-                Attack();
             }
             else
             {
@@ -307,7 +294,7 @@ public class AIBrain : MonoBehaviour
         return true;
     }
 
-    void Attack()
+    /*void Attack()
     {
         if (GameManager.Instance.Sword.Wielder == this)
         {
@@ -315,7 +302,7 @@ public class AIBrain : MonoBehaviour
             return;
         }
         damageComponent.DealDamage(CurrentAction.Target);
-    }
+    }*/
 }
 
 
