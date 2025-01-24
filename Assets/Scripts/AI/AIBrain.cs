@@ -163,13 +163,13 @@ public class AIBrain : MonoBehaviour
         switch (action)
         {
             case ActionType.AttackEnemy:
-                newAction.Priority = 0;
+                newAction.Priority = 99;
                 break;
             case ActionType.PickupSword:
-                newAction.Priority = 1;
+                newAction.Priority = 0;
                 break;
             case ActionType.GoToPointOfInterest:
-                newAction.Priority = 2;
+                newAction.Priority = 1;
                 break;
         }
         QueuedActions.Add(newAction);
@@ -201,18 +201,7 @@ public class AIBrain : MonoBehaviour
 
     void StopCurrentAction()
     {
-        switch (CurrentAction.ActionType)
-        {
-            case ActionType.AttackEnemy:
-                StopCoroutine(AttackAction());
-                break;
-            case ActionType.PickupSword:
-                StopCoroutine(SwordAction());
-                break;
-            case ActionType.GoToPointOfInterest:
-                StopCoroutine(MoveToInterestAction());
-                break;
-        }
+        StopAllCoroutines();
     }
 
     Action GetActionInQueue()
