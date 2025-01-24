@@ -129,7 +129,7 @@
                 "m_Node": {
                     "m_Id": "1a07355c4c7d44e1bc36644870586c7c"
                 },
-                "m_SlotId": 2
+                "m_SlotId": 1
             }
         },
         {
@@ -227,7 +227,7 @@
                 "m_Node": {
                     "m_Id": "1a07355c4c7d44e1bc36644870586c7c"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 2
             }
         },
         {
@@ -626,7 +626,7 @@
     "m_Type": "UnityEditor.ShaderGraph.BooleanMaterialSlot",
     "m_ObjectId": "03e0eed57d514bc09700bf9f2dbaa0e7",
     "m_Id": 0,
-    "m_DisplayName": "IsFacingRight?",
+    "m_DisplayName": "IsFacingLeft?",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1921,11 +1921,11 @@
     "m_Guid": {
         "m_GuidSerialized": "c20759ec-5349-4379-9e95-2e3497e3b3b5"
     },
-    "m_Name": "IsFacingRight?",
+    "m_Name": "IsFacingLeft?",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "IsFacingRight?",
-    "m_DefaultReferenceName": "_IsFacingRight",
-    "m_OverrideReferenceName": "",
+    "m_RefNameGeneratedByDisplayName": "IsFacingLeft?",
+    "m_DefaultReferenceName": "_IsFacingLeft",
+    "m_OverrideReferenceName": "_IsFacingLeft",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -2624,7 +2624,7 @@
     "m_Type": "UnityEditor.ShaderGraph.BooleanMaterialSlot",
     "m_ObjectId": "c8d1314c879b4b0f9b2e43376df825dc",
     "m_Id": 0,
-    "m_DisplayName": "IsFacingRight?",
+    "m_DisplayName": "IsFacingLeft?",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
