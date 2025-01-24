@@ -22,6 +22,9 @@ public class DamageComponent : MonoBehaviour
         while (AttackedObject)
         {
             HealthComponent AttackedComponent = AttackedObject.GetComponent<HealthComponent>();
+            float DamageDealt = GameManager.Instance.Sword.Wielder == this.GetComponent<AIBrain>()
+                ? Damage
+                : GameManager.Instance.Sword.DamageComponent.Damage;
             AttackedComponent.UpdateHealth(-Damage);
             yield return new WaitForSeconds(AttackSpeed);
         }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Sword : MonoBehaviour
@@ -32,6 +33,11 @@ public class Sword : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         DamageComponent = GetComponent<DamageComponent>();
         mover = GetComponent<SwordMove>();
+    }
+
+    private void Start()
+    {
+        RequestPickup();
     }
 
     // Update is called once per frame
@@ -71,7 +77,16 @@ public class Sword : MonoBehaviour
         //Vector3 targetDirection = Quaternion.Inverse(transform.rotation) * dragDirection;
         rb.AddForce(dragDirection * dragMagnitude * ThrowForce, ForceMode.Impulse);
         Unequip();
-        
+        Invoke(nameof(RequestPickup), 0.5f);
+    }
+    
+    void RequestPickup()
+    {
+        AIBrain closestmember = GameManager.Instance.GetClosestBrainWithTag(transform, "PartyMember");
+        if (closestmember)
+        {
+            closestmember.AddToQueue(ActionType.PickupSword, gameObject);
+        }
     }
     
     public void Equip(AIBrain NewWielder)
