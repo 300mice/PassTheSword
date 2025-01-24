@@ -52,21 +52,10 @@ public class AIBrain : MonoBehaviour
         GameObject chosenTarget = null;
         for (int i = 0; i < TargetPriorities.Length; i++)
         {
-            List<AIBrain> _targets =  GameManager.Instance.CurrentBrains;
-            foreach (AIBrain target in _targets)
+            chosenTarget = GameManager.Instance.GetClosestBrainWithTag(transform, TargetPriorities[i]).gameObject;
+            if (chosenTarget)
             {
-                if (!target || !target.bAlive)
-                {
-                    break;
-                }
-                if (target.CompareTag(TargetPriorities[i]))
-                {
-                    if (!chosenTarget || (chosenTarget.transform.position - transform.position).magnitude >
-                        (target.transform.position - transform.position).magnitude)
-                    {
-                        chosenTarget = target.gameObject;
-                    }
-                }
+                return chosenTarget;
             }
             
         }
@@ -275,6 +264,7 @@ public class AIBrain : MonoBehaviour
         {
             GameObject target = GetTarget();
             CurrentAction.Target = target;
+            Debug.Log(target.name);
             if (!CurrentAction.Target)
             {
                 yield return new WaitForSeconds(0.25f);

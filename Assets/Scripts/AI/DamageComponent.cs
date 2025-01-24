@@ -22,7 +22,7 @@ public class DamageComponent : MonoBehaviour
     
     IEnumerator DealDamage(GameObject AttackedObject)
     {
-        while (true)
+        while (AttackedObject)
         {
             HealthComponent AttackedComponent = AttackedObject.GetComponent<HealthComponent>();
             if (AttackedComponent)
