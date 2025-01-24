@@ -16,7 +16,6 @@ public class PlayerCamera : MonoBehaviour
     void Update()
     {
         float _distance = Mathf.Clamp((Vector3.Distance(transform.position, TrackingObject.transform.position) / 10.0f), 0.05f, 1.0f);
-        Debug.Log(_distance);
         transform.position = Vector3.MoveTowards(transform.position, TrackingObject.transform.position, (TrackingSpeed * _distance)* Time.deltaTime);
     }
 }

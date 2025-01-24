@@ -15,8 +15,6 @@ public class AIBrain : MonoBehaviour
 
     [TagSelector] 
     public string[] TargetPriorities;
-    
-    private GameObject target;
     private NavMeshAgent agent;
     private HealthComponent healthComponent;
     private DamageComponent damageComponent;
@@ -162,11 +160,6 @@ public class AIBrain : MonoBehaviour
         return !GameManager.Instance.Sword.bEquipped;
     }
 
-    public GameObject ReturnTarget()
-    {
-        return target;
-    }
-
     public void AddToQueue(ActionType action, GameObject target)
     {
         Action newAction = new Action();
@@ -282,11 +275,15 @@ public class AIBrain : MonoBehaviour
         {
             GameObject target = GetTarget();
             CurrentAction.Target = target;
+            if (!CurrentAction.Target)
+            {
+                yield return new WaitForSeconds(0.25f);
+                continue;
+            }
             agent.destination = target.transform.position;
             if ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
             {
                 UpdateState(BrainState.Attacking);
-                Attack();
             }
             else
             {
@@ -307,7 +304,7 @@ public class AIBrain : MonoBehaviour
         return true;
     }
 
-    void Attack()
+    /*void Attack()
     {
         if (GameManager.Instance.Sword.Wielder == this)
         {
@@ -315,7 +312,7 @@ public class AIBrain : MonoBehaviour
             return;
         }
         damageComponent.DealDamage(CurrentAction.Target);
-    }
+    }*/
 }
 
 
