@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         {
             if (!PartyMember.CompareTag(tag))
             {
-                break;
+                continue;
             }
 
             if (closestBrain == null || Vector3.Distance(closestBrain.transform.position, inTransform.position) >

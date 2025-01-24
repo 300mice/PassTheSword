@@ -52,7 +52,12 @@ public class AIBrain : MonoBehaviour
         GameObject chosenTarget = null;
         for (int i = 0; i < TargetPriorities.Length; i++)
         {
-            chosenTarget = GameManager.Instance.GetClosestBrainWithTag(transform, TargetPriorities[i]).gameObject;
+            AIBrain closestBrain = GameManager.Instance.GetClosestBrainWithTag(transform, TargetPriorities[i]);
+            if (!closestBrain)
+            {
+                return chosenTarget;
+            }
+            chosenTarget = closestBrain.gameObject;
             if (chosenTarget)
             {
                 return chosenTarget;
@@ -264,14 +269,14 @@ public class AIBrain : MonoBehaviour
         {
             GameObject target = GetTarget();
             CurrentAction.Target = target;
-            Debug.Log(CurrentAction.Target + " brain");
+            Debug.Log(CurrentAction.Target + " brain" + gameObject.name);
             if (!CurrentAction.Target)
             {
                 yield return new WaitForSeconds(0.25f);
                 continue;
             }
             agent.destination = target.transform.position;
-            if ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
+            if ((agent.destination - transform.position).magnitude < agent.stoppingDistance)
             {
                 UpdateState(BrainState.Attacking);
             }

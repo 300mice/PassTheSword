@@ -5,9 +5,6 @@ public class DamageComponent : MonoBehaviour
 {
     public float Damage;
     public float AttackSpeed;
-
-    private bool attacking;
-    private float lastAttacked;
     
     private AIBrain brain;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,13 +22,8 @@ public class DamageComponent : MonoBehaviour
         while (AttackedObject)
         {
             HealthComponent AttackedComponent = AttackedObject.GetComponent<HealthComponent>();
-            if (AttackedComponent)
-            {
-                lastAttacked = Time.unscaledTime;
-                AttackedComponent.UpdateHealth(-Damage);
-                yield return new WaitForSeconds(AttackSpeed);
-                
-            }
+            AttackedComponent.UpdateHealth(-Damage);
+            yield return new WaitForSeconds(AttackSpeed);
         }
         
     }
