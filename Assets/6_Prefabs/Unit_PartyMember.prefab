@@ -379,6 +379,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: healthFillColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: healthFillColor.b
+      value: 0.9329295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: healthFillColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: healthFillColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7556719973396251969, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: maxHealth
       value: 250
@@ -451,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2312253385522388716}
+  swordPos: {fileID: 0}
 --- !u!114 &4765254274494531317
 MonoBehaviour:
   m_ObjectHideFlags: 0

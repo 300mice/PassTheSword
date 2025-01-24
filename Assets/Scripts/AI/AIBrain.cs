@@ -40,6 +40,7 @@ public class AIBrain : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CurrentAction.Priority = 999;
         agent = GetComponent<NavMeshAgent>();
         healthComponent = GetComponent<HealthComponent>();
         damageComponent = GetComponent<DamageComponent>();
@@ -171,6 +172,7 @@ public class AIBrain : MonoBehaviour
         Action newAction = new Action();
         newAction.ActionType = action;
         newAction.Target = target;
+        newAction.Priority = 99;
         switch (action)
         {
             case ActionType.AttackEnemy:
@@ -309,10 +311,10 @@ public class AIBrain : MonoBehaviour
     {
         if (GameManager.Instance.Sword.Wielder == this)
         {
-            GameManager.Instance.Sword.DamageComponent.DealDamage(target);
+            GameManager.Instance.Sword.DamageComponent.DealDamage(CurrentAction.Target);
             return;
         }
-        damageComponent.DealDamage(target);
+        damageComponent.DealDamage(CurrentAction.Target);
     }
 }
 

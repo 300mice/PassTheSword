@@ -124,6 +124,22 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: healthFillColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: healthFillColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: healthFillColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: healthFillColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     m_RemovedGameObjects: []
