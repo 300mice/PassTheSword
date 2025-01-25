@@ -258,7 +258,7 @@ public class AIBrain : MonoBehaviour
         {
             GameObject target = GetTarget();
             CurrentAction.Target = target;
-            Debug.Log(CurrentAction.Target + " brain" + gameObject.name);
+            //Debug.Log(CurrentAction.Target + " brain" + gameObject.name);
             if (!CurrentAction.Target)
             {
                 yield return new WaitForSeconds(0.25f);

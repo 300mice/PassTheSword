@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Sword : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class Sword : MonoBehaviour
     public DamageComponent DamageComponent {get; private set;}
 
     private SwordMove mover;
+
+    public WielderChangeEvent wielderChange = new WielderChangeEvent();
 
     void Awake()
     {
@@ -100,7 +103,7 @@ public class Sword : MonoBehaviour
         //transform.parent = Wielder.transform;
         rb.linearVelocity = Vector3.zero;
         bEquipped = true;
-
+        wielderChange.Invoke(Wielder);
         mover.currentTarget = Wielder.swordPos;
 
 
@@ -113,9 +116,16 @@ public class Sword : MonoBehaviour
         bEquipped = false;
         lastEquippedTime = Time.time;
         mover.currentTarget = null;
+        wielderChange.Invoke(Wielder);
     }
 
     
 
     
+
+    
 }
+
+[System.Serializable]
+public class WielderChangeEvent : UnityEvent<AIBrain> { }
+
