@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(DamageComponent))]
@@ -23,8 +24,8 @@ public class AreaDamage : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             RaycastHit hit = hits[i];
-            HealthComponent hp = hit.transform.GetComponent<HealthComponent>();
-            if (hp)
+            HealthComponent hp = hit.transform.GetComponentInParent<HealthComponent>();
+            if (hp && !hp.CompareTag("PartyMember"))
             {
                 hp.UpdateHealth(-_damageComponent.Damage);
             }
@@ -37,5 +38,12 @@ public class AreaDamage : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position + (Vector3.up * 0.5f), radius);
+        Gizmos.DrawSphere((transform.position + (Vector3.up * 0.5f)) + (Vector3.forward * maxDistance), radius);
     }
 }
