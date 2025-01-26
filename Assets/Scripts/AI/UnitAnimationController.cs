@@ -24,6 +24,7 @@ public class UnitAnimationController : MonoBehaviour
         if( sword != null)
         {
             sword.wielderChange.AddListener(UpdateBrain);
+            sword.DamageComponent.OnHit.AddListener(AttackAnim);
         }
     }
 
@@ -90,6 +91,15 @@ public class UnitAnimationController : MonoBehaviour
         }
             
         else Debug.Log("null");
+    }
+
+    void AttackAnim()
+    {
+        if (sword != null)
+        {
+            PlayAnimation("attack", 0);
+        }
+        
     }
 
 

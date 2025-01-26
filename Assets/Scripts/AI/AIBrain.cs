@@ -74,7 +74,7 @@ public class AIBrain : MonoBehaviour
         {
             GameManager.Instance.Sword.Unequip();
         }
-        Destroy(gameObject, 3);
+        Destroy(gameObject);
     }
 
     public void AddToQueue(ActionType action, GameObject target)
@@ -147,13 +147,19 @@ public class AIBrain : MonoBehaviour
 
     IEnumerator SwordAction()
     {
+        Sword sword = CurrentAction.Target.gameObject.GetComponent<Sword>();
+        if (sword.Wielder == this)
+        {
+            MoveThroughQueue();
+            yield break;
+        }
         agent.destination = CurrentAction.Target.transform.position;
         while ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
         {
             UpdateState(BrainState.Running);
             yield return new WaitForSeconds(0.25f);
         }
-        Sword sword = CurrentAction.Target.gameObject.GetComponent<Sword>();
+        
         sword.Equip(this);
         CurrentAction = new Action();
         UpdateState(BrainState.Idle);

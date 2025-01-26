@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageComponent : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class DamageComponent : MonoBehaviour
     public float AttackSpeed;
     
     private AIBrain brain;
+
+    public UnityEvent OnHit; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -26,6 +29,11 @@ public class DamageComponent : MonoBehaviour
                 ? GameManager.Instance.Sword.DamageComponent.Damage
                 : Damage;
             AttackedComponent.UpdateHealth(-DamageDealt);
+            OnHit.Invoke();
+            if (GameManager.Instance.Sword.Wielder == gameObject.GetComponent<AIBrain>())
+            {
+                GameManager.Instance.Sword.DamageComponent.OnHit.Invoke();
+            }
             yield return new WaitForSeconds(AttackSpeed);
         }
         

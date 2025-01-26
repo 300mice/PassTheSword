@@ -19,8 +19,6 @@ public class Sword : MonoBehaviour
 
     private bool bMouseHeld;
 
-    private float lastEquippedTime;
-
     public bool bEquipped { get; private set; } = false;
     
     public AIBrain Wielder {get; private set;}
@@ -94,10 +92,6 @@ public class Sword : MonoBehaviour
     
     public void Equip(AIBrain NewWielder)
     {
-        if (lastEquippedTime + 1 > Time.time)
-        {
-            return;
-        }
         Wielder = NewWielder;
         //transform.position = Wielder.transform.position;
         //transform.parent = Wielder.transform;
@@ -105,8 +99,6 @@ public class Sword : MonoBehaviour
         bEquipped = true;
         wielderChange.Invoke(Wielder);
         mover.currentTarget = Wielder.swordPos;
-
-
     }
 
     public void Unequip()
@@ -114,7 +106,6 @@ public class Sword : MonoBehaviour
         Wielder = null;
         //transform.SetParent(null);
         bEquipped = false;
-        lastEquippedTime = Time.time;
         mover.currentTarget = null;
         wielderChange.Invoke(Wielder);
     }
