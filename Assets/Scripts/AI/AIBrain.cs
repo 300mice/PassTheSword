@@ -21,7 +21,7 @@ public class AIBrain : MonoBehaviour
 
     public bool CanEquipSword = false;
 
-    private bool bAlive = true;
+    public bool bAlive = true;
 
     public Transform swordPos;
 
@@ -66,28 +66,7 @@ public class AIBrain : MonoBehaviour
         }
         return chosenTarget;
     }
-
-    /*IEnumerator BrainLoop(float waitTime)
-    {
-        while (bAlive)
-        {
-            if (PickUpSword())
-            {
-                target = GameManager.Instance.Sword.gameObject;
-            }
-            else
-            {
-                target = GetTarget();
-            }
-            agent.destination = target.transform.position;
-            if ((agent.destination - transform.position).magnitude <= agent.stoppingDistance)
-            {
-                Action(target);
-            }
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
-*/
+    
     void StopBrain(HealthComponent HealthComponent)
     {
         bAlive = false;
@@ -96,62 +75,6 @@ public class AIBrain : MonoBehaviour
             GameManager.Instance.Sword.Unequip();
         }
         Destroy(gameObject, 3);
-    }
-
-    /*void Action(GameObject Target)
-    {
-        if (agent.velocity.magnitude > minRunAnimSpeed)
-        {
-            animator.PlayAnimation("run", 0);
-        }
-        else
-        {
-            //animator.PlayAnimation("idle", 0);
-        }
-
-        AIBrain TargetBrain = Target.GetComponent<AIBrain>();
-        if (!bAlive)
-        {
-            return;
-        }
-        if (!TargetBrain)
-        {
-            Sword sword = Target.gameObject.GetComponent<Sword>();
-            if (sword)
-            {
-                if (!PickUpSword())
-                {
-                    target = null;
-                    return;
-                }
-                sword.Equip(this);
-            }
-            return;
-        }
-
-        if (!TargetBrain.bAlive)
-        {
-            return;
-        }
-        
-
-
-
-        if (damageComponent.DealDamage(TargetBrain.healthComponent))
-        {
-            animator.PlayAnimation("attack", 0);
-        }
-        
-    }*/
-
-    bool PickUpSword()
-    {
-        if (!CanEquipSword)
-        {
-            return false;
-        }
-
-        return !GameManager.Instance.Sword.bEquipped;
     }
 
     public void AddToQueue(ActionType action, GameObject target)
@@ -287,16 +210,6 @@ public class AIBrain : MonoBehaviour
         OnStateChange.Invoke(CurrentState);
         return true;
     }
-
-    /*void Attack()
-    {
-        if (GameManager.Instance.Sword.Wielder == this)
-        {
-            GameManager.Instance.Sword.DamageComponent.DealDamage(CurrentAction.Target);
-            return;
-        }
-        damageComponent.DealDamage(CurrentAction.Target);
-    }*/
 }
 
 

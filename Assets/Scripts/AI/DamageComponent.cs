@@ -19,13 +19,13 @@ public class DamageComponent : MonoBehaviour
     
     IEnumerator DealDamage(GameObject AttackedObject)
     {
-        while (AttackedObject)
+        while (AttackedObject && brain.bAlive)
         {
             HealthComponent AttackedComponent = AttackedObject.GetComponent<HealthComponent>();
-            float DamageDealt = GameManager.Instance.Sword.Wielder == this.GetComponent<AIBrain>()
-                ? Damage
-                : GameManager.Instance.Sword.DamageComponent.Damage;
-            AttackedComponent.UpdateHealth(-Damage);
+            float DamageDealt = GameManager.Instance.Sword.Wielder == gameObject.GetComponent<AIBrain>()
+                ? GameManager.Instance.Sword.DamageComponent.Damage
+                : Damage;
+            AttackedComponent.UpdateHealth(-DamageDealt);
             yield return new WaitForSeconds(AttackSpeed);
         }
         

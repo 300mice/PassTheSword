@@ -397,12 +397,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556719973396251969, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7597629754382636575, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: 668fcea6f60e77947bbb96a396e9403d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7656301919442974698, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
