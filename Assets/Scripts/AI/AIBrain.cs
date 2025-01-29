@@ -34,6 +34,7 @@ public class AIBrain : MonoBehaviour
 
     public BrainState CurrentState;
     public StateChangeEvent OnStateChange = new StateChangeEvent();
+    public GameObject corpse;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -74,6 +75,14 @@ public class AIBrain : MonoBehaviour
         {
             GameManager.Instance.Sword.Unequip();
         }
+        if(corpse != null)
+        {
+            GameObject c = Instantiate(corpse, transform.position, Quaternion.identity);
+            CorpseScript s = c.GetComponent<CorpseScript>();
+            s.Setup(GetComponent<FlipXManager>().currentFacing);
+            
+        }
+
         Destroy(gameObject);
     }
 

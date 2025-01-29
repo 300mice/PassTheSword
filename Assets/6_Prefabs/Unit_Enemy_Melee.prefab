@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 703360980384552304, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: corpse
+      value: 
+      objectReference: {fileID: 7230897510503290200, guid: bacc207180c3b7346b362aafd17456df, type: 3}
+    - target: {fileID: 703360980384552304, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: CanEquipSword
       value: 0
       objectReference: {fileID: 0}
@@ -105,6 +109,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: names.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: 'names.Array.data[3]'
+      value: die
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: animations.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: 'animations.Array.data[0]'
       value: 
       objectReference: {fileID: 7400000, guid: f07fa39b8536e0b45bf32f0c87969f91, type: 2}
@@ -116,6 +132,10 @@ PrefabInstance:
       propertyPath: 'animations.Array.data[2]'
       value: 
       objectReference: {fileID: 7400000, guid: c31acd3136c60524a8f0004fc1d55b0d, type: 2}
+    - target: {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: 'animations.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7400000, guid: 38f378717eb486a4c8243588fb04b284, type: 2}
     - target: {fileID: 4953988331347834220, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

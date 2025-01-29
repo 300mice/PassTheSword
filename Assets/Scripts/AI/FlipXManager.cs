@@ -8,11 +8,10 @@ public class FlipXManager : MonoBehaviour
     private AIBrain brain;
     public SpriteRenderer sprite;
     private Material material;
-    public GameObject swordPos;
 
 
     // used to track facing for sprite and sword positions
-    private int currentFacing = 0;
+    public int currentFacing = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,26 +39,36 @@ public class FlipXManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // check facing
-        if (!brain.CurrentAction.Target)
+        if(brain != null)
         {
-            return;
+            // check facing
+            if (!brain.CurrentAction.Target)
+            {
+                return;
+            }
+
+            if (Mathf.Sign(brain.CurrentAction.Target.transform.position.x - transform.position.x) != currentFacing)
+            {
+                currentFacing = (int)Mathf.Sign(brain.CurrentAction.Target.transform.position.x - transform.position.x);
+                FlipX();
+            }
         }
         
-        if (Mathf.Sign(brain.CurrentAction.Target.transform.position.x - transform.position.x) != currentFacing)
-        {
-            currentFacing = (int)Mathf.Sign(brain.CurrentAction.Target.transform.position.x - transform.position.x);
-            FlipX();
-        }
 
     }
 
     // this is to flip the sprite and sword positions on the x axis
-    void FlipX()
+    public void FlipX()
     {
 
-        //swordPos.transform.localScale = new Vector3(-currentFacing, 1, 1);
         sprite.material.SetFloat("_IsFacingLeft", currentFacing > 0? 0 : 1);
         sprite.flipX = currentFacing < 0;
+    }
+
+    public void FlipX(int facing)
+    {
+
+        sprite.material.SetFloat("_IsFacingLeft", facing > 0 ? 0 : 1);
+        sprite.flipX = facing < 0;
     }
 }
