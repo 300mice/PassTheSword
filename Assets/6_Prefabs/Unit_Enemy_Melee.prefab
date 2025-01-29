@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4545175636613173600, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1592684682, guid: c07e341c7ac92a946aa11edcd77c7f11, type: 3}
     - target: {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: names.Array.size
       value: 4
