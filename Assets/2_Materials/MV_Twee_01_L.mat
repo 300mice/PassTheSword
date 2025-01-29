@@ -20,10 +20,14 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: :m_LightmapFlags
+  m_LockedProperties: :m_LightmapFlags _Distortion
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DistortionTex:
+        m_Texture: {fileID: 2800000, guid: 5ad843854abfbe543a5b833d15026ac9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: e2c5b9420d221f04dbda121b9b2c2de7, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -32,8 +36,19 @@ Material:
         m_Texture: {fileID: 2800000, guid: d2194b3465385394b822d5ea9da5cfb8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_077035807ead4f539ad411d8addaa407_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 881e3cf3345e6ad4c8a0e7aacd9b4e47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Distortion: 1
+    - _Distortion_Add: 0
+    - _Distortion_Speed: 0.05
+    - _Distortion_Strength: 0.01
+    - _Distortion_TilingX: 0.08
+    - _Distortion_TilingY: 0.25
+    - _Distortion_Top_Bot_Mask: 1.75
     - _IsFacingLeft: 1
     m_Colors:
     - _Colour: {r: 1, g: 1, b: 1, a: 0}

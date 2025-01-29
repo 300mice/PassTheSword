@@ -203,7 +203,7 @@ Material:
     - _Multi_Cobble: 1
     - _Multi_Dirt: 1
     - _Multi_Grass: 0.7
-    - _Multi_Mask_Grass: 0.5
+    - _Multi_Mask_Grass: 1
     - _Normal_Strength: 77.61
     - _OcclusionStrength: 1
     - _Parallax: 0.005
