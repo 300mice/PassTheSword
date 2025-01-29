@@ -176,7 +176,7 @@ Material:
     - _Add_Cobble: 0
     - _Add_Dirt: 0.15
     - _Add_Grass: 0.04
-    - _Add_Mask_Grass: 0.01
+    - _Add_Mask_Grass: 0.025
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -194,6 +194,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _GrassSpeed: 1
     - _Height_Blend: 452.5
     - _Hieght_Blend: 0.01
     - _Metallic: 0
@@ -202,7 +203,7 @@ Material:
     - _Multi_Cobble: 1
     - _Multi_Dirt: 1
     - _Multi_Grass: 0.7
-    - _Multi_Mask_Grass: 0.97
+    - _Multi_Mask_Grass: 0.5
     - _Normal_Strength: 77.61
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -211,8 +212,8 @@ Material:
     - _Power_1: -0.45
     - _Power_Cobble: 0.5
     - _Power_Dirt: 0.57
-    - _Power_Grass: 3.49
-    - _Power_Mask_Grass: 1.01
+    - _Power_Grass: 3.5
+    - _Power_Mask_Grass: 0.91
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1

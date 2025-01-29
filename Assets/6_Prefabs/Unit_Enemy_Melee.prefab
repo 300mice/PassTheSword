@@ -80,6 +80,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2312253385522388716, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312253385522388716, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312253385522388716, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3350b4e8a3de5a54a886c570d5409fc3, type: 2}
     - target: {fileID: 2600001214981743595, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -169,7 +181,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5925169168725239090, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
