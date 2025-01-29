@@ -164,6 +164,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8631415585853775583, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 668fcea6f60e77947bbb96a396e9403d, type: 2}
     - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: healthFillColor.a
       value: 1
