@@ -46,6 +46,7 @@ public class AIBrain : MonoBehaviour
         healthComponent.HasDied.AddListener(StopBrain);
         animator = GetComponent<UnitAnimationController>();
         AddToQueue(ActionType.AttackEnemy, null);
+        UpdateState(BrainState.Idle);
     }
 
     private GameObject GetTarget()

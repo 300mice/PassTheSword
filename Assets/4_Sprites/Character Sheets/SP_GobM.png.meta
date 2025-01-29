@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -136,7 +136,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 240
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -158,7 +158,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 240
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -180,7 +180,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 240
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -202,7 +202,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 240
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -224,7 +224,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 240
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -245,8 +245,8 @@ TextureImporter:
       name: SP_GobM_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 288
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -267,8 +267,8 @@ TextureImporter:
       name: SP_GobM_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 192
+        x: 336
+        y: 336
         width: 48
         height: 48
       alignment: 7
@@ -289,8 +289,8 @@ TextureImporter:
       name: SP_GobM_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
+        x: 0
+        y: 288
         width: 48
         height: 48
       alignment: 7
