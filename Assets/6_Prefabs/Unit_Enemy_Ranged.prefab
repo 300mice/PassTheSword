@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 43715599204853389, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 43715599204853389, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 43715599204853389, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 43715599204853389, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 668fcea6f60e77947bbb96a396e9403d, type: 2}
@@ -18,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 493008036189040078, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: Damage
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1084798692822794162, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
       propertyPath: healthFillColor.b

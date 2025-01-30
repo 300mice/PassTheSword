@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 787106272101733366}
   - component: {fileID: 101166171759407840}
   - component: {fileID: 820466570266138566}
+  - component: {fileID: 2932595692867321163}
   m_Layer: 5
   m_Name: WaveBar
   m_TagString: Untagged
@@ -1042,6 +1043,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2932595692867321163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590454704539884616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23328e28c617ac4592850e4e87ac935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6599817042732826073
 GameObject:
   m_ObjectHideFlags: 0
