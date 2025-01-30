@@ -36,6 +36,8 @@ public class AreaDamage : MonoBehaviour
         }
         
         _camera.CameraShake(0.25f,0.09f);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SwordSlash", transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Stab");
 
 
     }

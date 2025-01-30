@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d12a3f46-4dcd-4fd1-8550-3ba92f7b1166}">
+		<property name="assetPath">
+			<value>Goblin Dying In Fight by Fenodyrie Id-565928 4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.82856249999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{412a6f38-08fb-47dd-9bf8-a70e0cd9efb8}</destination>
+		</relationship>
+	</object>
+</objects>

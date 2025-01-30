@@ -34,11 +34,18 @@ public class HealthComponent : MonoBehaviour
         if(delta < 0)
         {
             Instantiate(damageEffect, transform.position+new Vector3(0,3,0), Quaternion.identity);
+            
+        }
+
+        if (CompareTag("PartyMember"))
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/PartyHurt", transform.position);
         }
 
         health = Mathf.Clamp(health += delta, 0, maxHealth);
         OnHealthChanged.Invoke();
         IsDead();
+        
         return health;
     }
 

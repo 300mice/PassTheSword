@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9c7e1663-281b-40d2-bc9e-3b36c60ebd82}">
+		<property name="assetPath">
+			<value>Voices, Male, Hurt, Combat, Damaged, Pain 05 SND85293.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.34766666666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{412a6f38-08fb-47dd-9bf8-a70e0cd9efb8}</destination>
+		</relationship>
+	</object>
+</objects>

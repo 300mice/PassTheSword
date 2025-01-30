@@ -200,6 +200,34 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7717127102691368516, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/FootstepGrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717127102691368516, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717127102691368516, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717127102691368516, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1439979005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717127102691368516, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1195003260
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717127102691368516, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -2001022788
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717127102691368516, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1305205688
+      objectReference: {fileID: 0}
     - target: {fileID: 7951662152876651550, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_LocalScale.y
       value: 1

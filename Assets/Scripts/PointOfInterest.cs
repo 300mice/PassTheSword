@@ -25,6 +25,10 @@ public class PointOfInterest : MonoBehaviour
 
     void RequestGuardian()
     {
+        if (!_partyMembers[partyIndex])
+        {
+            return;
+        }
         AIBrain RequestedPlayer = _partyMembers[partyIndex].GetComponent<AIBrain>();
         if (!RequestedPlayer)
         {

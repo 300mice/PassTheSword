@@ -10,6 +10,7 @@ using UnityEngine.Events;
 
 // Defines logic for the behaviour of Party Members
 [RequireComponent(typeof(HealthComponent))]
+[RequireComponent(typeof(FMODUnity.StudioEventEmitter))]
 public class AIBrain : MonoBehaviour
 {
 
@@ -40,19 +41,24 @@ public class AIBrain : MonoBehaviour
 
     public SpriteRenderer sprite;
     private Material mat;
+    private FMODUnity.StudioEventEmitter instance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        CurrentAction.Priority = 999;
         agent = GetComponent<NavMeshAgent>();
         healthComponent = GetComponent<HealthComponent>();
         damageComponent = GetComponent<DamageComponent>();
-        healthComponent.HasDied.AddListener(StopBrain);
         animator = GetComponent<UnitAnimationController>();
+        instance = GetComponent<FMODUnity.StudioEventEmitter>();
+    }
+    
+    void Start()
+    {
+        CurrentAction.Priority = 999;
+        healthComponent.HasDied.AddListener(StopBrain);
         AddToQueue(ActionType.AttackEnemy, null);
         UpdateState(BrainState.Idle);
-
         if(sprite != null)
             mat = sprite.material;
 
@@ -90,9 +96,8 @@ public class AIBrain : MonoBehaviour
             GameObject c = Instantiate(corpse, transform.position, Quaternion.identity);
             CorpseScript s = c.GetComponent<CorpseScript>();
             s.Setup(GetComponent<FlipXManager>().currentFacing);
-            
+            FMODUnity.RuntimeManager.PlayOneShot("event:/GoblinDeath", transform.position);
         }
-
         Destroy(gameObject);
     }
 
@@ -235,6 +240,14 @@ public class AIBrain : MonoBehaviour
         }
         CurrentState = newState;
         OnStateChange.Invoke(CurrentState);
+        if (CurrentState == BrainState.Running)
+        {
+            instance.Play();
+        }
+        else
+        {
+            instance.Stop();
+        }
         return true;
     }
 }

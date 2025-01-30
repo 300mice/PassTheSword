@@ -47,6 +47,10 @@ public class DamageComponent : MonoBehaviour
                     self.UpdateHealth(DamageDealt * lifeStealFactor);
                 }
             }
+            if (CompareTag("PartyMember"))
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Punch", transform.position);
+            }
             yield return new WaitForSeconds(AttackSpeed);
         }
 

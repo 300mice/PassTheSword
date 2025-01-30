@@ -648,6 +648,34 @@ PrefabInstance:
       propertyPath: lifeStealWithSword
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/FootstepGrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1439979005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1195003260
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -2001022788
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1305205688
+      objectReference: {fileID: 0}
     - target: {fileID: 8781865641726103857, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
