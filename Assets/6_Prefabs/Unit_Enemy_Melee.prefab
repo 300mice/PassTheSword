@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: 'TargetPriorities.Array.data[1]'
       value: SpawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1035313412148914750, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2312253385522388716, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -233,6 +237,7 @@ PrefabInstance:
     - {fileID: 3073375482781081774, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5925169168725239090, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+    - {fileID: 6424269173277214687, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}

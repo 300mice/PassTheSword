@@ -9,6 +9,7 @@ TagManager:
   - PartyMember
   - SpawnPoint
   - DefencePoint
+  - Tree
   layers:
   - Default
   - TransparentFX

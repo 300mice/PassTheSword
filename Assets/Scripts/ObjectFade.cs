@@ -27,6 +27,14 @@ public class ObjectFade : MonoBehaviour
 
                
     }
+
+
+    void Fade(bool b)
+    {
+        DoFade = b;
+    }
+
+
     void FadeNow()
     {
         Color currentColor = Mat.color;

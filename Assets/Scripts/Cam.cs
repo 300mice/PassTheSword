@@ -20,8 +20,12 @@ public class Cam : MonoBehaviour
             if (member != null)
             {
                 Vector3 dir = member.transform.position - transform.position;
+
                 Ray ray = new Ray(transform.position, dir);
                 RaycastHit hit;
+
+
+
 
                 if (Physics.Raycast(ray, out hit))
                 {
