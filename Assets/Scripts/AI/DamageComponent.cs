@@ -6,6 +6,9 @@ public class DamageComponent : MonoBehaviour
 {
     public float Damage;
     public float AttackSpeed;
+
+    public bool lifeStealWithSword = false;
+    public float lifeStealFactor = 1;
     
     private AIBrain brain;
 
@@ -29,10 +32,18 @@ public class DamageComponent : MonoBehaviour
                 ? GameManager.Instance.Sword.DamageComponent.Damage
                 : Damage;
             AttackedComponent.UpdateHealth(-DamageDealt);
+
+            
+
             OnHit.Invoke();
             if (GameManager.Instance.Sword.Wielder == gameObject.GetComponent<AIBrain>())
             {
                 GameManager.Instance.Sword.DamageComponent.OnHit.Invoke();
+                HealthComponent self = GetComponent<HealthComponent>();
+                if (lifeStealWithSword && self != null)
+                {
+                    self.UpdateHealth(DamageDealt * lifeStealFactor);
+                }
             }
             yield return new WaitForSeconds(AttackSpeed);
         }

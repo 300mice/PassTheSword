@@ -21,6 +21,7 @@ public class SpawnEffectOnPickup : MonoBehaviour
 
     void OnPickup()
     {
-        Instantiate(effect, transform.position, Quaternion.identity);
+        if(effect != null)
+            Instantiate(effect, transform.position, Quaternion.identity);
     }
 }
