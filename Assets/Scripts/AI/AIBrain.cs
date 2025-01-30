@@ -15,15 +15,13 @@ public class AIBrain : MonoBehaviour
 
     [TagSelector] 
     public string[] TargetPriorities;
-    
-    private GameObject target;
     private NavMeshAgent agent;
     private HealthComponent healthComponent;
     private DamageComponent damageComponent;
 
     public bool CanEquipSword = false;
 
-    private bool bAlive = true;
+    public bool bAlive = true;
 
     public Transform swordPos;
 
@@ -36,16 +34,20 @@ public class AIBrain : MonoBehaviour
 
     public BrainState CurrentState;
     public StateChangeEvent OnStateChange = new StateChangeEvent();
+    public PickupEvent onPickup = new PickupEvent();
+    public GameObject corpse;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CurrentAction.Priority = 999;
         agent = GetComponent<NavMeshAgent>();
         healthComponent = GetComponent<HealthComponent>();
         damageComponent = GetComponent<DamageComponent>();
         healthComponent.HasDied.AddListener(StopBrain);
         animator = GetComponent<UnitAnimationController>();
         AddToQueue(ActionType.AttackEnemy, null);
+        UpdateState(BrainState.Idle);
     }
 
     private GameObject GetTarget()
@@ -53,48 +55,21 @@ public class AIBrain : MonoBehaviour
         GameObject chosenTarget = null;
         for (int i = 0; i < TargetPriorities.Length; i++)
         {
-            List<AIBrain> _targets =  GameManager.Instance.CurrentBrains;
-            foreach (AIBrain target in _targets)
+            AIBrain closestBrain = GameManager.Instance.GetClosestBrainWithTag(transform, TargetPriorities[i]);
+            if (!closestBrain)
             {
-                if (!target || !target.bAlive)
-                {
-                    break;
-                }
-                if (target.CompareTag(TargetPriorities[i]))
-                {
-                    if (!chosenTarget || (chosenTarget.transform.position - transform.position).magnitude >
-                        (target.transform.position - transform.position).magnitude)
-                    {
-                        chosenTarget = target.gameObject;
-                    }
-                }
+                return chosenTarget;
+            }
+            chosenTarget = closestBrain.gameObject;
+            if (chosenTarget)
+            {
+                return chosenTarget;
             }
             
         }
         return chosenTarget;
     }
-
-    /*IEnumerator BrainLoop(float waitTime)
-    {
-        while (bAlive)
-        {
-            if (PickUpSword())
-            {
-                target = GameManager.Instance.Sword.gameObject;
-            }
-            else
-            {
-                target = GetTarget();
-            }
-            agent.destination = target.transform.position;
-            if ((agent.destination - transform.position).magnitude <= agent.stoppingDistance)
-            {
-                Action(target);
-            }
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
-*/
+    
     void StopBrain(HealthComponent HealthComponent)
     {
         bAlive = false;
@@ -102,68 +77,15 @@ public class AIBrain : MonoBehaviour
         {
             GameManager.Instance.Sword.Unequip();
         }
-        Destroy(gameObject, 3);
-    }
-
-    /*void Action(GameObject Target)
-    {
-        if (agent.velocity.magnitude > minRunAnimSpeed)
+        if(corpse != null)
         {
-            animator.PlayAnimation("run", 0);
-        }
-        else
-        {
-            //animator.PlayAnimation("idle", 0);
+            GameObject c = Instantiate(corpse, transform.position, Quaternion.identity);
+            CorpseScript s = c.GetComponent<CorpseScript>();
+            s.Setup(GetComponent<FlipXManager>().currentFacing);
+            
         }
 
-        AIBrain TargetBrain = Target.GetComponent<AIBrain>();
-        if (!bAlive)
-        {
-            return;
-        }
-        if (!TargetBrain)
-        {
-            Sword sword = Target.gameObject.GetComponent<Sword>();
-            if (sword)
-            {
-                if (!PickUpSword())
-                {
-                    target = null;
-                    return;
-                }
-                sword.Equip(this);
-            }
-            return;
-        }
-
-        if (!TargetBrain.bAlive)
-        {
-            return;
-        }
-        
-
-
-
-        if (damageComponent.DealDamage(TargetBrain.healthComponent))
-        {
-            animator.PlayAnimation("attack", 0);
-        }
-        
-    }*/
-
-    bool PickUpSword()
-    {
-        if (!CanEquipSword)
-        {
-            return false;
-        }
-
-        return !GameManager.Instance.Sword.bEquipped;
-    }
-
-    public GameObject ReturnTarget()
-    {
-        return target;
+        Destroy(gameObject);
     }
 
     public void AddToQueue(ActionType action, GameObject target)
@@ -171,16 +93,17 @@ public class AIBrain : MonoBehaviour
         Action newAction = new Action();
         newAction.ActionType = action;
         newAction.Target = target;
+        newAction.Priority = 99;
         switch (action)
         {
             case ActionType.AttackEnemy:
-                newAction.Priority = 0;
+                newAction.Priority = 99;
                 break;
             case ActionType.PickupSword:
-                newAction.Priority = 1;
+                newAction.Priority = 0;
                 break;
             case ActionType.GoToPointOfInterest:
-                newAction.Priority = 2;
+                newAction.Priority = 1;
                 break;
         }
         QueuedActions.Add(newAction);
@@ -212,18 +135,7 @@ public class AIBrain : MonoBehaviour
 
     void StopCurrentAction()
     {
-        switch (CurrentAction.ActionType)
-        {
-            case ActionType.AttackEnemy:
-                StopCoroutine(AttackAction());
-                break;
-            case ActionType.PickupSword:
-                StopCoroutine(SwordAction());
-                break;
-            case ActionType.GoToPointOfInterest:
-                StopCoroutine(MoveToInterestAction());
-                break;
-        }
+        StopAllCoroutines();
     }
 
     Action GetActionInQueue()
@@ -246,15 +158,22 @@ public class AIBrain : MonoBehaviour
 
     IEnumerator SwordAction()
     {
+        Sword sword = CurrentAction.Target.gameObject.GetComponent<Sword>();
+        if (sword.Wielder == this)
+        {
+            MoveThroughQueue();
+            yield break;
+        }
         agent.destination = CurrentAction.Target.transform.position;
         while ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
         {
             UpdateState(BrainState.Running);
             yield return new WaitForSeconds(0.25f);
         }
-        Sword sword = CurrentAction.Target.gameObject.GetComponent<Sword>();
+        
         sword.Equip(this);
         CurrentAction = new Action();
+        onPickup.Invoke();
         UpdateState(BrainState.Idle);
         MoveThroughQueue();
     }
@@ -280,11 +199,16 @@ public class AIBrain : MonoBehaviour
         {
             GameObject target = GetTarget();
             CurrentAction.Target = target;
+            //Debug.Log(CurrentAction.Target + " brain" + gameObject.name);
+            if (!CurrentAction.Target)
+            {
+                yield return new WaitForSeconds(0.25f);
+                continue;
+            }
             agent.destination = target.transform.position;
-            if ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
+            if ((agent.destination - transform.position).magnitude < agent.stoppingDistance)
             {
                 UpdateState(BrainState.Attacking);
-                Attack();
             }
             else
             {
@@ -303,16 +227,6 @@ public class AIBrain : MonoBehaviour
         CurrentState = newState;
         OnStateChange.Invoke(CurrentState);
         return true;
-    }
-
-    void Attack()
-    {
-        if (GameManager.Instance.Sword.Wielder == this)
-        {
-            GameManager.Instance.Sword.DamageComponent.DealDamage(target);
-            return;
-        }
-        damageComponent.DealDamage(target);
     }
 }
 
@@ -342,3 +256,6 @@ public enum BrainState
 
 [System.Serializable]
 public class StateChangeEvent : UnityEvent<BrainState> {}
+
+[System.Serializable]
+public class PickupEvent : UnityEvent { }
