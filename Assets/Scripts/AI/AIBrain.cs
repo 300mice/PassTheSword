@@ -34,6 +34,7 @@ public class AIBrain : MonoBehaviour
 
     public BrainState CurrentState;
     public StateChangeEvent OnStateChange = new StateChangeEvent();
+    public PickupEvent onPickup = new PickupEvent();
     public GameObject corpse;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -172,6 +173,7 @@ public class AIBrain : MonoBehaviour
         
         sword.Equip(this);
         CurrentAction = new Action();
+        onPickup.Invoke();
         UpdateState(BrainState.Idle);
         MoveThroughQueue();
     }
@@ -254,3 +256,6 @@ public enum BrainState
 
 [System.Serializable]
 public class StateChangeEvent : UnityEvent<BrainState> {}
+
+[System.Serializable]
+public class PickupEvent : UnityEvent { }
