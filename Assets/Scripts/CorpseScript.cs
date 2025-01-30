@@ -36,7 +36,7 @@ public class CorpseScript : MonoBehaviour
 
     public void Setup(int facing)
     {
-        Debug.Log(facing);
+        //Debug.Log(facing);
         if(facing == -1)
         {
             GetComponent<FlipXManager>().FlipX(-facing);
