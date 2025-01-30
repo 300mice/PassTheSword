@@ -9,16 +9,18 @@ public class HealthBar : MonoBehaviour
 
     public GameObject targetObject;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         if(targetObject != null)
             healthComponent = targetObject.GetComponent<HealthComponent>();
         else
             healthComponent = GetComponentInParent<HealthComponent>();
-
+    }
+    
+    void Start()
+    {
         healthComponent.OnHealthChanged.AddListener(OnHealthChanged);
         healthFill.color = healthFillColor;
-
     }
 
     void OnHealthChanged()
