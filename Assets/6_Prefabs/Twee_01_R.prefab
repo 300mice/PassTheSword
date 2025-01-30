@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6079599031460046069}
   - component: {fileID: 4865431053847434458}
   - component: {fileID: -8950237874182458131}
+  - component: {fileID: 2933856943792187095}
   m_Layer: 0
   m_Name: Twee_01_R
   m_TagString: Tree
@@ -103,3 +104,24 @@ MonoBehaviour:
   fadeSpeed: 0.05
   fadeAmount: 0.5
   DoFade: 0
+--- !u!65 &2933856943792187095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842430297625084896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 5.16, z: 1}
+  m_Center: {x: 0.15, y: 3, z: 0}
