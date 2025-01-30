@@ -208,7 +208,9 @@ PrefabInstance:
       propertyPath: healthFillColor.r
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3456326744770876417, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+    - {fileID: 3073375482781081774, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5925169168725239090, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     m_AddedGameObjects: []

@@ -116,7 +116,8 @@ PrefabInstance:
       propertyPath: CanEquipSword
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6770439741120026876, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
