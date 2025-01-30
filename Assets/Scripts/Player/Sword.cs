@@ -99,10 +99,13 @@ public class Sword : MonoBehaviour
         bEquipped = true;
         wielderChange.Invoke(Wielder);
         mover.currentTarget = Wielder.swordPos;
+        Wielder.SendMessage("OnPickup");
     }
 
     public void Unequip()
     {
+        if(Wielder != null)
+            Wielder.SendMessage("OnDrop");
         Wielder = null;
         //transform.SetParent(null);
         bEquipped = false;

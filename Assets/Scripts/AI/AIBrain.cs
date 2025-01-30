@@ -35,7 +35,11 @@ public class AIBrain : MonoBehaviour
     public BrainState CurrentState;
     public StateChangeEvent OnStateChange = new StateChangeEvent();
     public PickupEvent onPickup = new PickupEvent();
+
     public GameObject corpse;
+
+    public SpriteRenderer sprite;
+    private Material mat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,6 +52,10 @@ public class AIBrain : MonoBehaviour
         animator = GetComponent<UnitAnimationController>();
         AddToQueue(ActionType.AttackEnemy, null);
         UpdateState(BrainState.Idle);
+
+        if(sprite != null)
+            mat = sprite.material;
+
     }
 
     private GameObject GetTarget()
@@ -263,3 +271,4 @@ public class StateChangeEvent : UnityEvent<BrainState> {}
 
 [System.Serializable]
 public class PickupEvent : UnityEvent { }
+

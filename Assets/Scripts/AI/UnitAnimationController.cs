@@ -17,7 +17,7 @@ public class UnitAnimationController : MonoBehaviour
     {
         animator = sprite.gameObject.GetComponent<Animator>();
         if (animator == null)
-            Debug.Log("oopsie cant find animator");
+            animator = GetComponent<Animator>();
         brain = GetComponent<AIBrain>();
         if(brain != null )
             brain.OnStateChange.AddListener(AnimationChange);
@@ -44,17 +44,21 @@ public class UnitAnimationController : MonoBehaviour
         if (animator != null)
         {
 
-
-
-            if (anim != null && animator.GetCurrentAnimatorClipInfo(0)[0].clip != anim)
+            if(animator.GetCurrentAnimatorClipInfo(0) != null)
             {
-                animator.Play(anim.name, 0, frame);
-                //t_currentAnimTime = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+                if (anim != null && animator.GetCurrentAnimatorClipInfo(0)[0].clip != anim)
+                {
+                    animator.Play(anim.name, 0, frame);
+                    //t_currentAnimTime = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+                }
             }
 
+            
+            else
+                animator.Play(anim.name, 0, frame);
+
         }
-        else
-            animator.Play(anim.name, 0, frame);
+        
 
     }
 

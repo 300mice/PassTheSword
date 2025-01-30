@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private int score = 0;
+    public TextMeshProUGUI scoreText;
     private static GameManager instance;
     public int EnemiesRemaining = 0;
     public int PartyRemaining = 0;
@@ -112,6 +115,15 @@ public class GameManager : MonoBehaviour
 
         }
         return closestBrain;
+    }
+
+    public void AddScore(int s)
+    {
+        score += s;
+        if(scoreText  != null)
+        {
+            scoreText.text = score.ToString();
+        }
     }
 
 }

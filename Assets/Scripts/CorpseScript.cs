@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CorpseScript : MonoBehaviour
 {
+    public int score = 25;
 
     public float despawnTime = 4;
     public AnimationCurve curve;
@@ -20,6 +21,7 @@ public class CorpseScript : MonoBehaviour
         animator = GetComponent<UnitAnimationController>();
         if (animator != null)
             animator.PlayAnimation(anim.ToString(), 0);
+        GameManager.Instance.SendMessage("AddScore", score);
     }
 
     
