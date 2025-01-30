@@ -10,7 +10,7 @@ Material:
   m_Name: MV_Twee_02_R
   m_Shader: {fileID: -6465566751694194690, guid: af6d748d27500f749a253220a109fcac, type: 3}
   m_Parent: {fileID: 2100000, guid: 80c1a3db744fc914db54e423064981e1, type: 2}
-  m_ModifiedSerializedProperties: 14
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -20,7 +20,7 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: :m_LightmapFlags
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -29,28 +29,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 20b1bff068971a6479da2a3906f5cadb, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: b2ed5c4656aec324281de1463659273e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_077035807ead4f539ad411d8addaa407_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 881e3cf3345e6ad4c8a0e7aacd9b4e47, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _Distortion: 1
-    - _Distortion_Speed: 0.2
-    - _Distortion_Strength: 0.01
-    - _Distortion_TilingX: 0.08
-    - _Distortion_TilingY: 0.25
-    - _Distortion_Top_Bot_Mask: 1.75
-    - _IsFacingLeft: 0
-    m_Colors:
-    - _Colour: {r: 1, g: 1, b: 1, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6076149921138276665

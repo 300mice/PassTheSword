@@ -685,7 +685,7 @@
                 "m_Node": {
                     "m_Id": "6959cc02967945e6b23e230d8fd65d5a"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -1119,7 +1119,7 @@
                 "m_Node": {
                     "m_Id": "6959cc02967945e6b23e230d8fd65d5a"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 1
             }
         }
     ],
@@ -5569,7 +5569,7 @@
         "a": 0.0
     },
     "isMainColor": false,
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
@@ -5840,7 +5840,7 @@
         "a": 0.0
     },
     "isMainColor": false,
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
@@ -6999,7 +6999,7 @@
         "a": 0.0
     },
     "isMainColor": false,
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
