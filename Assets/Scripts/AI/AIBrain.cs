@@ -105,7 +105,7 @@ public class AIBrain : MonoBehaviour
         switch (action)
         {
             case ActionType.AttackEnemy:
-                newAction.Priority = 99;
+                newAction.Priority = 5;
                 break;
             case ActionType.PickupSword:
                 newAction.Priority = 0;
@@ -115,7 +115,7 @@ public class AIBrain : MonoBehaviour
                 break;
         }
         QueuedActions.Add(newAction);
-        if (newAction.Priority < CurrentAction.Priority)
+        if (newAction.Priority <= CurrentAction.Priority)
         {
             QueuedActions.Add(CurrentAction);
             StopCurrentAction();
@@ -230,7 +230,7 @@ public class AIBrain : MonoBehaviour
         }
     }
 
-    bool UpdateState(BrainState newState)
+    public bool UpdateState(BrainState newState)
     {
         if (newState == CurrentState)
         {

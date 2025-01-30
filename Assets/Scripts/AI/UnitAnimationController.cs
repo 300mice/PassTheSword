@@ -44,7 +44,7 @@ public class UnitAnimationController : MonoBehaviour
         if (animator != null)
         {
 
-            if(animator.GetCurrentAnimatorClipInfo(0) != null)
+            if(animator.GetCurrentAnimatorClipInfo(0).Length > 0)
             {
                 if (anim != null && animator.GetCurrentAnimatorClipInfo(0)[0].clip != anim)
                 {

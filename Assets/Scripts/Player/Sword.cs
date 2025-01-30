@@ -38,7 +38,7 @@ public class Sword : MonoBehaviour
 
     private void Start()
     {
-        RequestPickup();
+        Invoke(nameof(RequestPickup), 0.5f);
     }
 
     // Update is called once per frame

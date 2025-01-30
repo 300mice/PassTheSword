@@ -1,4 +1,6 @@
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +11,7 @@ public class DamageComponent : MonoBehaviour
 
     public bool lifeStealWithSword = false;
     public float lifeStealFactor = 1;
-    
+    private bool bAttacking;
     private AIBrain brain;
 
     public UnityEvent OnHit; 
@@ -47,7 +49,8 @@ public class DamageComponent : MonoBehaviour
             }
             yield return new WaitForSeconds(AttackSpeed);
         }
-        
+
+        brain.UpdateState(BrainState.Idle);
     }
 
     void OnStateChange(BrainState newState)
@@ -55,10 +58,25 @@ public class DamageComponent : MonoBehaviour
         if (newState == BrainState.Attacking)
         {
             StartCoroutine(DealDamage(brain.CurrentAction.Target));
+            bAttacking = true;
         }
         else
         {
             StopAllCoroutines();
+            bAttacking = false;
+        }
+    }
+
+    void DelayAttack()
+    {
+        StartCoroutine(DealDamage(brain.CurrentAction.Target));
+    }
+
+    void OnDrawGizmos()
+    {
+        if (brain)
+        {
+            Handles.Label(transform.position, brain.CurrentAction.ActionType.ToString()); 
         }
     }
 }

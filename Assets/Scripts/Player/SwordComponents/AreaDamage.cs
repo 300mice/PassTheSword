@@ -40,10 +40,10 @@ public class AreaDamage : MonoBehaviour
         
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position + (Vector3.up * 0.5f), radius);
         Gizmos.DrawSphere((transform.position + (Vector3.up * 0.5f)) + (Vector3.forward * maxDistance), radius);
-    }
+    }*/
 }
