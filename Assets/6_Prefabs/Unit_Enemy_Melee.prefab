@@ -100,6 +100,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 921073600287988000, guid: 13c9c6820ad4aa44880768b71262f0de, type: 3}
+    - target: {fileID: 3154893746154978978, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3274910059164128065, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3991683414539362277, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_Speed
       value: 2
@@ -112,6 +120,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1592684682, guid: c07e341c7ac92a946aa11edcd77c7f11, type: 3}
+    - target: {fileID: 4545175636613173600, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4765254274494531317, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: names.Array.size
       value: 4
@@ -140,6 +152,10 @@ PrefabInstance:
       propertyPath: 'animations.Array.data[3]'
       value: 
       objectReference: {fileID: 7400000, guid: 38f378717eb486a4c8243588fb04b284, type: 2}
+    - target: {fileID: 4818805467411537628, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4953988331347834220, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -163,6 +179,10 @@ PrefabInstance:
     - target: {fileID: 6459150113394121534, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_TagString
       value: Enemy_Melee
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903362031672266573, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451120896715332081, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_AnchorMax.x
