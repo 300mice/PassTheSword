@@ -13,6 +13,7 @@ public class HealthComponent : MonoBehaviour
     public UnityEvent OnHealthChanged = new UnityEvent();
 
     public bool bAlive = true;
+    public GameObject damageEffect;
     public float GetMaxHealth()
     {
         return maxHealth;
@@ -29,6 +30,12 @@ public class HealthComponent : MonoBehaviour
         {
             return 0;
         } 
+
+        if(delta < 0)
+        {
+            Instantiate(damageEffect, transform.position+new Vector3(0,3,0), Quaternion.identity);
+        }
+
         health = Mathf.Clamp(health += delta, 0, maxHealth);
         OnHealthChanged.Invoke();
         IsDead();

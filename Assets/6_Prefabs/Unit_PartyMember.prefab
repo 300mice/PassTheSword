@@ -624,6 +624,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 7556719973396251969, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: damageEffect
+      value: 
+      objectReference: {fileID: 6082170678485659923, guid: b0fa42a1f13dd1f4987f73f155df1498, type: 3}
     - target: {fileID: 7597629754382636575, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_Material
       value: 
