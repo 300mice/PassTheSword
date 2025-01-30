@@ -5,6 +5,7 @@ using UnityEngine;
 public class AreaDamage : MonoBehaviour
 {
     private DamageComponent _damageComponent;
+    private PlayerCamera _camera;
 
     private float radius = 3f;
     private float maxDistance = 2f;
@@ -12,6 +13,9 @@ public class AreaDamage : MonoBehaviour
     {
         _damageComponent = GetComponent<DamageComponent>();
         _damageComponent.OnHit.AddListener(OnHit);
+
+        _camera = GameObject.FindAnyObjectByType<PlayerCamera>();
+
     }
 
     void OnHit()
@@ -30,6 +34,8 @@ public class AreaDamage : MonoBehaviour
                 hp.UpdateHealth(-_damageComponent.Damage);
             }
         }
+        
+        _camera.CameraShake(0.25f,0.08f);
 
 
     }

@@ -206,11 +206,8 @@ public class AIBrain : MonoBehaviour
         while (true)
         {
             GameObject target = GetTarget();
-            if (target)
-            {
-                CurrentAction.Target = target;
-            }
             
+            CurrentAction.Target = target;
             //Debug.Log(CurrentAction.Target + " brain" + gameObject.name);
             if (!CurrentAction.Target)
             {

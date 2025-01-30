@@ -29,11 +29,14 @@ public class Sword : MonoBehaviour
 
     public WielderChangeEvent wielderChange = new WielderChangeEvent();
 
+    private PlayerCamera _camera;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         DamageComponent = GetComponent<DamageComponent>();
         mover = GetComponent<SwordMove>();
+        _camera = GameObject.FindAnyObjectByType<PlayerCamera>();
     }
 
     private void Start()
@@ -77,6 +80,7 @@ public class Sword : MonoBehaviour
         rb.ResetInertiaTensor();
         //Vector3 targetDirection = Quaternion.Inverse(transform.rotation) * dragDirection;
         rb.AddForce(dragDirection * dragMagnitude * ThrowForce, ForceMode.Impulse);
+        _camera.CameraShake(0.5f,0.1f);
         Unequip();
         Invoke(nameof(RequestPickup), 0.5f);
     }
@@ -100,6 +104,7 @@ public class Sword : MonoBehaviour
         wielderChange.Invoke(Wielder);
         mover.currentTarget = Wielder.swordPos;
         Wielder.SendMessage("OnPickup");
+        _camera.CameraShake(0.2f,0.05f);
     }
 
     public void Unequip()
