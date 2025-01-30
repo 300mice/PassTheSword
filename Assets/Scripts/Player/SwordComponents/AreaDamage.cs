@@ -35,7 +35,7 @@ public class AreaDamage : MonoBehaviour
             }
         }
         
-        _camera.CameraShake(0.25f,0.08f);
+        _camera.CameraShake(0.25f,0.09f);
 
 
     }

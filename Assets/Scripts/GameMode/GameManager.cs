@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class GameManager : MonoBehaviour
 
     public AIBrain[] EnemyTypes;
     public AIBrain PartyType;
-
+    public UnityEvent onEnemyDeath;
+    public UnityEvent onPartyDeath;
     public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
 
     public Sword Sword { get; private set; }
@@ -51,20 +53,23 @@ public class GameManager : MonoBehaviour
         AIBrain deadAI = HealthComponent.GetComponent<AIBrain>();
         RemoveDeadBrain(deadAI);
         EnemiesRemaining--;
+        onEnemyDeath.Invoke();
     }
 
     IEnumerator SpawnWave()
     {
+        float waveTimer = 10.0f;
         while (true)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 SpawnEnemy(EnemyTypes[Random.Range(0, EnemyTypes.Length)]);
                 yield return new WaitForSeconds(0.5f);
 
             }
 
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(waveTimer);
+            waveTimer = Mathf.Clamp(waveTimer - 0.5f, 2, 20);
         }
 
     }
@@ -86,6 +91,7 @@ public class GameManager : MonoBehaviour
         AIBrain deadAI = HealthComponent.GetComponent<AIBrain>();
         RemoveDeadBrain(deadAI);
         PartyRemaining--;
+        onPartyDeath.Invoke();
     }
 
     void RemoveDeadBrain(AIBrain deadAI)

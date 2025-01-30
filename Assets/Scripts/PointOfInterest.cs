@@ -5,8 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class PointOfInterest : MonoBehaviour
 {
+    public int partyIndex;
     private SphereCollider _sphereCollider;
     private AIBrain Guardian;
+
+    private GameObject[] _partyMembers;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -16,12 +19,13 @@ public class PointOfInterest : MonoBehaviour
 
     void Start()
     {
+        _partyMembers = GameObject.FindGameObjectsWithTag("PartyMember");
         RequestGuardian();
     }
 
     void RequestGuardian()
     {
-        AIBrain RequestedPlayer = GameManager.Instance.GetClosestBrainWithTag(transform, "PartyMember");
+        AIBrain RequestedPlayer = _partyMembers[partyIndex].GetComponent<AIBrain>();
         if (!RequestedPlayer)
         {
             Invoke(nameof(RequestGuardian), 3);
