@@ -21,7 +21,7 @@ public class CorpseScript : MonoBehaviour
         animator = GetComponent<UnitAnimationController>();
         if (animator != null)
             animator.PlayAnimation(anim.ToString(), 0);
-        GameManager.Instance.SendMessage("AddScore", score);
+        GameManager.Instance.AddScore(score);
     }
 
     

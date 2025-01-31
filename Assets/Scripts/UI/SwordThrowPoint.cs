@@ -20,18 +20,21 @@ public class SwordThrowPoint : MonoBehaviour
     private Vector3 currentPosition;
     private Vector3 cat;
     private Vector3 cat2;
+
+    private Vector3 initialMousePos;
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("yo");
-            initialPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+            initialMousePos = Input.mousePosition;
             //initialPosition = Camera.main.ScreenToWorldPoint( new Vector3(Input.mousePosition.x, 2, Input.mousePosition.y));
         }
         if (Input.GetMouseButton(0))
         {
             currentPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+            initialPosition = Camera.main.ScreenToWorldPoint(new Vector3(initialMousePos.x, initialMousePos.y, -Camera.main.transform.position.z));
             //currentPosition = Camera.main.ScreenToWorldPoint( new Vector3(Input.mousePosition.x, 2, Input.mousePosition.y));
             //cat = new Vector3 (initialPosition.x, initialPosition.y, 10f);
             //cat2 = new Vector3(currentPosition.x, currentPosition.y, 10f);

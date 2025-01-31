@@ -177,6 +177,10 @@ public class AIBrain : MonoBehaviour
             MoveThroughQueue();
             yield break;
         }
+        if (!agent.isActiveAndEnabled)
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
         agent.destination = CurrentAction.Target.transform.position;
         while ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
         {
@@ -193,6 +197,10 @@ public class AIBrain : MonoBehaviour
 
     IEnumerator MoveToInterestAction()
     {
+        if (!agent.isActiveAndEnabled)
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
         agent.destination = CurrentAction.Target.transform.position;
         while ((agent.destination - transform.position).magnitude > agent.stoppingDistance)
         {
@@ -218,6 +226,10 @@ public class AIBrain : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.25f);
                 continue;
+            }
+            if (!agent.isActiveAndEnabled)
+            {
+                yield return new WaitForSeconds(0.25f);
             }
             agent.destination = target.transform.position;
             if ((agent.destination - transform.position).magnitude < agent.stoppingDistance)

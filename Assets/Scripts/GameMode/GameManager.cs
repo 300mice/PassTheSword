@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    private int score = 0;
+    public int score { get; private set; }= 0;
     public TextMeshProUGUI scoreText;
     private static GameManager instance;
     public int EnemiesRemaining = 0;
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public AIBrain PartyType;
     public UnityEvent onEnemyDeath;
     public UnityEvent onPartyDeath;
+    public UnityEvent onGameOver;
     public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
 
     public Sword Sword { get; private set; }
@@ -92,6 +93,10 @@ public class GameManager : MonoBehaviour
         RemoveDeadBrain(deadAI);
         PartyRemaining--;
         onPartyDeath.Invoke();
+        if (PartyRemaining <= 0)
+        {
+            onGameOver.Invoke();
+        }
     }
 
     void RemoveDeadBrain(AIBrain deadAI)

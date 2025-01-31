@@ -50,7 +50,8 @@ public class Indicator : MonoBehaviour
     {
         if (indicatorImage)
         {
-            indicatorImage.color = new Color(color.r, color.g, color.b, indicatorImage.color.a);
+            //indicatorImage.color = new Color(color.r, color.g, color.b, indicatorImage.color.a);
+            indicatorMaterial.SetColor("_Inner_Colour", Color.magenta);
         }
     }
 
