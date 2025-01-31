@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Circle_01
-  m_Shader: {fileID: -6465566751694194690, guid: 648029dfd28ac2740ac0ab3e6b7ff841, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 4b577a06f29593f4395a83f858bc3ec2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
