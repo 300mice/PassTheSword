@@ -784,6 +784,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: Preload
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: EventStopTrigger
       value: 2
       objectReference: {fileID: 0}
