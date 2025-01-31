@@ -122,7 +122,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Duration: 1.68
+    - _Duration: 0
     - _EnvironmentReflections: 1
     - _Float: 0.22
     - _Frequency: 10
@@ -151,7 +151,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Border_Colour: {r: 0.23487395, g: 1, b: 0, a: 1}
     - _Circle_Colour: {r: 0, g: 2.2745104, b: 2.9960787, a: 0}
-    - _Circle_Colour2: {r: 3.5648696, g: 0, b: 0, a: 0}
+    - _Circle_Colour2: {r: 0, g: 29.866661, b: 31.999998, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Inner_Colour: {r: 1, g: 0, b: 0, a: 1}
