@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
     public Color healthFillColor;
 
     public GameObject targetObject;
+    public GameObject john;
 
     private bool bFlashing;
 
@@ -22,6 +23,12 @@ public class HealthBar : MonoBehaviour
             healthComponent = targetObject.GetComponent<HealthComponent>();
         else
             healthComponent = GetComponentInParent<HealthComponent>();
+        SpriteRenderer sprite = john.GetComponent<SpriteRenderer>();
+        if (sprite)
+        {
+            sprite.material = new Material(sprite.material);
+            sprite.material.SetColor("_Outline_Colour", healthFillColor);
+        }
     }
     
     void Start()

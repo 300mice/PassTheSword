@@ -73,9 +73,8 @@ public class GameManager : MonoBehaviour
             {
                 for (int i = 0; i < -2 + wave; i++)
                 {
-                    SpawnEnemy(EnemyTypes[1]);
+                    SpawnEnemy(EnemyTypes[Mathf.Clamp(1, 0, EnemyTypes.Length - 1)]);
                     yield return new WaitForSeconds(0.25f);
-
                 }
             }
 

@@ -625,6 +625,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: john
+      value: 
+      objectReference: {fileID: 4966036177653350177}
+    - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: healthFillColor.a
       value: 1
       objectReference: {fileID: 0}
