@@ -7,6 +7,8 @@ public class CorpseScript : MonoBehaviour
     public float despawnTime = 4;
     public AnimationCurve curve;
 
+    public int animations = 1;
+
     private float timer = 0;
     private Vector3 initialPos;
     private int anim = 0;
@@ -17,7 +19,7 @@ public class CorpseScript : MonoBehaviour
     {
         initialPos = transform.position;
         timer = 0;
-        anim = Random.Range(1, 3);
+        anim = Random.Range(1, animations+1);
         animator = GetComponent<UnitAnimationController>();
         if (animator != null)
             animator.PlayAnimation(anim.ToString(), 0);

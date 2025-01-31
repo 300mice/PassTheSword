@@ -92,7 +92,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7230897510503290200}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.53, y: 0, z: -7.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -192,9 +192,15 @@ MonoBehaviour:
   names:
   - 1
   - 2
+  - 3
+  - 4
+  - 5
   animations:
   - {fileID: 7400000, guid: 38f378717eb486a4c8243588fb04b284, type: 2}
   - {fileID: 7400000, guid: 22c7c1e4a8b81904a8d22afa6ce58e23, type: 2}
+  - {fileID: 7400000, guid: 57777625d43960b44932e9f226fdc0c8, type: 2}
+  - {fileID: 7400000, guid: f6329197a50a439409e623fd1e1c2c05, type: 2}
+  - {fileID: 7400000, guid: f662a0cf741a2b94fb70007e409b26b5, type: 2}
   sprite: {fileID: 5322812743686473035}
 --- !u!114 &6218536374514174717
 MonoBehaviour:
@@ -208,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46709496accc52d4797e7c27593e0295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 25
   despawnTime: 4
   curve:
     serializedVersion: 2
@@ -233,6 +240,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  animations: 5
 --- !u!114 &-304626008871319759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,5 +254,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 5322812743686473035}
-  swordPos: {fileID: 0}
   currentFacing: 0
