@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public AIBrain[] EnemyTypes;
     public AIBrain PartyType;
+    public AIBrain ZombieType;
     public UnityEvent onEnemyDeath;
     public UnityEvent onPartyDeath;
     public UnityEvent onGameOver;
@@ -101,6 +102,15 @@ public class GameManager : MonoBehaviour
     {
         AIBrain NewPartyMember = Instantiate(PartyType,
             new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
+        NewPartyMember.GetComponent<HealthComponent>().HasDied.AddListener(PartyDied);
+        CurrentBrains.Add(NewPartyMember);
+        PartyRemaining++;
+    }
+    
+    public void SpawnZombie()
+    {
+        AIBrain NewPartyMember = Instantiate(ZombieType,
+            Instance.Sword.transform.position, Quaternion.identity);
         NewPartyMember.GetComponent<HealthComponent>().HasDied.AddListener(PartyDied);
         CurrentBrains.Add(NewPartyMember);
         PartyRemaining++;

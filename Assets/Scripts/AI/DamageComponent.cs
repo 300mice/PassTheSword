@@ -35,8 +35,12 @@ public class DamageComponent : MonoBehaviour
                 : Damage;
             AttackedComponent.UpdateHealth(-DamageDealt);
 
-            
 
+            if (GameManager.Instance.Sword.Wielder == gameObject.GetComponent<AIBrain>())
+            {
+                GameManager.Instance.Sword.DamageComponent.OnHit.Invoke();
+            }
+            
             OnHit.Invoke();
             if (GameManager.Instance.Sword.Wielder == gameObject.GetComponent<AIBrain>())
             {

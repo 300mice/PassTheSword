@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+using System.Linq;
 
 public class HUD : MonoBehaviour
 {
@@ -12,7 +16,7 @@ public class HUD : MonoBehaviour
     
     [SerializeField] private GameObject Upgrades;
     
-    [SerializeField] private Upgrade[] AvailableUpgrades;
+    [SerializeField] private List<Upgrade> AvailableUpgrades = new List<Upgrade>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,9 +55,10 @@ public class HUD : MonoBehaviour
     {
         Time.timeScale = 0f;
         Upgrades.SetActive(true);
+        ShuffleUpgrades();
         foreach (Transform child in Upgrades.transform)
         {
-            Destroy(child.gameObject);
+            Destroy(child.gameObject);  
         }
         AddUpgrade(0);
         AddUpgrade(1);
@@ -71,4 +76,20 @@ public class HUD : MonoBehaviour
         Upgrades.SetActive(false);
         Time.timeScale = 1.0f;
     }
+    
+    public void ShuffleUpgrades()
+    {
+        System.Random rng = new System.Random();
+        int n = AvailableUpgrades.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            Upgrade temp = AvailableUpgrades[k];
+            AvailableUpgrades[k] = AvailableUpgrades[n];
+            AvailableUpgrades[n] = temp;
+        }
+    }
+    
+    
 }

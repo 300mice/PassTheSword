@@ -29,4 +29,10 @@ public class Upgrade : MonoBehaviour
         FindAnyObjectByType<AddSpeed>().addSpeed += 2.75f;
         OnUpgrade.Invoke();
     }
+
+    public void AddRes()
+    {
+        FindAnyObjectByType<NecroBlade>().target += 3;
+        OnUpgrade.Invoke();
+    }
 }

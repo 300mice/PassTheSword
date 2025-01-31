@@ -50,7 +50,8 @@ MonoBehaviour:
   EnemyTypes:
   - {fileID: 9120188027478158626, guid: b2c3652e3056fc24bbd2b467512ed639, type: 3}
   - {fileID: 385780390520013801, guid: 00b8cc3c9bb65834a85fc447bfbd47b5, type: 3}
-  PartyType: {fileID: 1691684033010785712, guid: 40c7f7b4dbf19f9459638bfc2820acb4, type: 3}
+  PartyType: {fileID: 703360980384552304, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+  ZombieType: {fileID: 703360980384552304, guid: 18970e18234d4c046921a130c4a39901, type: 3}
   onEnemyDeath:
     m_PersistentCalls:
       m_Calls: []
