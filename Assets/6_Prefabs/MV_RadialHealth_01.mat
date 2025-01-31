@@ -27,7 +27,9 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Health_Value: 0.4999999
+    - _Health_Value: -0.043
+    - _Multi: 41.13
+    - _Power: 4.3
     m_Colors:
     - _Border_Colour: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
     - _Inner_Colour: {r: 1, g: 1, b: 1, a: 1}
