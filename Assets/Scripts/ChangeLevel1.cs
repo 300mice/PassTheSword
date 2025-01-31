@@ -8,12 +8,12 @@ public class ChangeLevel1 : MonoBehaviour
     // Update is called once per frame
     public void ChangeLevel()
     {
-     Invoke(nameof(Change), 0.5f);   
+        Time.timeScale = 1;
+        Invoke(nameof(Change), 0.5f);   
     }
 
     void Change()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(LevelName);
     }
 }
