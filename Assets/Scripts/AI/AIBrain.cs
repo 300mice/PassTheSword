@@ -91,12 +91,18 @@ public class AIBrain : MonoBehaviour
         {
             GameManager.Instance.Sword.Unequip();
         }
-        if(corpse != null)
+
+        if (corpse != null)
         {
             GameObject c = Instantiate(corpse, transform.position, Quaternion.identity);
             CorpseScript s = c.GetComponent<CorpseScript>();
             s.Setup(GetComponent<FlipXManager>().currentFacing);
             FMODUnity.RuntimeManager.PlayOneShot("event:/GoblinDeath", transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/EarnScore");
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Death", transform.position);
         }
         Destroy(gameObject);
     }
