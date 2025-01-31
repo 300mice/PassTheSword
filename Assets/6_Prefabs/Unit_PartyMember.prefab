@@ -682,11 +682,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: OverrideMaxDistance
-      value: 25
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: OverrideMinDistance
-      value: 2
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: EventReference.Guid.Data1
