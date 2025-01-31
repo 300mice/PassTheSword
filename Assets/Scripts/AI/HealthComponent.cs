@@ -11,7 +11,8 @@ public class HealthComponent : MonoBehaviour
 
     public HealthComponentEvent HasDied = new HealthComponentEvent();
     public UnityEvent OnHealthChanged = new UnityEvent();
-
+    public UnityEvent OnShieldChanged = new UnityEvent();
+    public float shield;
     public bool bAlive = true;
     public GameObject damageEffect;
     public float GetMaxHealth()
@@ -26,6 +27,7 @@ public class HealthComponent : MonoBehaviour
 
     public float UpdateHealth(float delta)
     {
+        float newDelta = delta;
         if (!bAlive)
         {
             return 0;
@@ -34,7 +36,14 @@ public class HealthComponent : MonoBehaviour
         if(delta < 0)
         {
             Instantiate(damageEffect, transform.position+new Vector3(0,3,0), Quaternion.identity);
-            
+            if (shield > 0)
+            {
+                newDelta = UpdateShield(delta);
+                if (newDelta >= 0)
+                {
+                    return health;
+                }
+            }
         }
 
         if (CompareTag("PartyMember"))
@@ -42,12 +51,21 @@ public class HealthComponent : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/PartyHurt", transform.position);
         }
 
-        health = Mathf.Clamp(health += delta, 0, maxHealth);
+        health = Mathf.Clamp(health += newDelta, 0, maxHealth);
         OnHealthChanged.Invoke();
         IsDead();
         
         return health;
     }
+
+    public float UpdateShield(float delta)
+    {
+        float originalShield = shield;
+        shield = Mathf.Clamp(shield += delta, 0, maxHealth);
+        OnShieldChanged.Invoke();
+        return originalShield + delta;
+    }
+    
 
     public bool IsDead()
     {

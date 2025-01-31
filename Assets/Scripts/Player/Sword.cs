@@ -83,6 +83,7 @@ public class Sword : MonoBehaviour
         _camera.CameraShake(0.5f,0.1f);
         Unequip();
         Invoke(nameof(RequestPickup), 0.5f);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Throw", transform.position);
     }
     
     void RequestPickup()
@@ -105,6 +106,7 @@ public class Sword : MonoBehaviour
         mover.currentTarget = Wielder.swordPos;
         Wielder.SendMessage("OnPickup");
         _camera.CameraShake(0.2f,0.05f);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Equip", transform.position);
     }
 
     public void Unequip()

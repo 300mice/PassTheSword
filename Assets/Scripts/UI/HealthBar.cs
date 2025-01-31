@@ -6,6 +6,7 @@ public class HealthBar : MonoBehaviour
 {
     HealthComponent healthComponent;
     public Image healthFill;
+    public Image shieldFill;
     public Color healthFillColor;
 
     public GameObject targetObject;
@@ -34,6 +35,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         healthComponent.OnHealthChanged.AddListener(OnHealthChanged);
+        healthComponent.OnShieldChanged.AddListener(OnShieldChanged);
         _material = new Material(healthFill.material);
         healthFill.material = _material;
         _material.SetColor("_Colour", healthFillColor);
@@ -53,12 +55,17 @@ public class HealthBar : MonoBehaviour
             }
             else
             {
-                StartCoroutine(HealthbarFlash(Color.white));
+                StartCoroutine(HealthbarFlash(Color.grey));
             }
             
         }
         oldHealth = healthComponent.health;
         
+    }
+    
+    void OnShieldChanged()
+    {
+        shieldFill.fillAmount = healthComponent.shield / healthComponent.GetMaxHealth();
     }
 
     public void SetHealth(HealthComponent h)

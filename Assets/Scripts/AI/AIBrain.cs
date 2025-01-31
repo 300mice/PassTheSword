@@ -17,7 +17,7 @@ public class AIBrain : MonoBehaviour
     [TagSelector] 
     public string[] TargetPriorities;
     private NavMeshAgent agent;
-    private HealthComponent healthComponent;
+    public HealthComponent healthComponent;
     private DamageComponent damageComponent;
 
     public bool CanEquipSword = false;
@@ -177,6 +177,7 @@ public class AIBrain : MonoBehaviour
 
     IEnumerator SwordAction()
     {
+        UpdateState(BrainState.Running);
         Sword sword = CurrentAction.Target.gameObject.GetComponent<Sword>();
         if (sword.Wielder == this)
         {
@@ -203,6 +204,7 @@ public class AIBrain : MonoBehaviour
 
     IEnumerator MoveToInterestAction()
     {
+        UpdateState(BrainState.Running);
         if (!agent.isActiveAndEnabled)
         {
             yield return new WaitForSeconds(0.25f);
@@ -225,7 +227,7 @@ public class AIBrain : MonoBehaviour
         while (true)
         {
             GameObject target = GetTarget();
-            
+            UpdateState(BrainState.Running);
             CurrentAction.Target = target;
             //Debug.Log(CurrentAction.Target + " brain" + gameObject.name);
             if (!CurrentAction.Target)

@@ -138,5 +138,5 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 8
-  OverrideMaxDistance: 63.5
+  OverrideMinDistance: 15
+  OverrideMaxDistance: 200

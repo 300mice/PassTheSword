@@ -18,7 +18,13 @@ public class GameManager : MonoBehaviour
     public UnityEvent onEnemyDeath;
     public UnityEvent onPartyDeath;
     public UnityEvent onGameOver;
+    public AddScoreEvent onAddScore;
+    public UnityEvent onLevelUp;
     public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
+    public int requiredXP = 750;
+    public int level = 0;
+    private int xp = 0;
+    
     
     public Sword Sword { get; private set; }
 
@@ -83,16 +89,21 @@ public class GameManager : MonoBehaviour
     
     
 
-    void SpawnParty()
+    public void SpawnParty()
     {
         for (int i = 0; i < 4; i++)
         {
-            AIBrain NewPartyMember = Instantiate(PartyType,
-                new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
-            NewPartyMember.GetComponent<HealthComponent>().HasDied.AddListener(PartyDied);
-            CurrentBrains.Add(NewPartyMember);
-            PartyRemaining++;
+            SpawnPartyMember();
         }
+    }
+
+    public void SpawnPartyMember()
+    {
+        AIBrain NewPartyMember = Instantiate(PartyType,
+            new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)), Quaternion.identity);
+        NewPartyMember.GetComponent<HealthComponent>().HasDied.AddListener(PartyDied);
+        CurrentBrains.Add(NewPartyMember);
+        PartyRemaining++;
     }
 
     void PartyDied(HealthComponent HealthComponent)
@@ -144,10 +155,29 @@ public class GameManager : MonoBehaviour
     public void AddScore(int s)
     {
         score += s;
+        xp += s;
         if(scoreText  != null)
         {
             scoreText.text = score.ToString();
         }
+        LevelUp();
+        onAddScore.Invoke(xp);
+    }
+
+    public bool LevelUp()
+    {
+        if (xp <= requiredXP)
+        {
+            return false;
+        }
+        onLevelUp.Invoke();
+        requiredXP += 250;
+        level++;
+        xp = 0;
+        return true;
     }
 
 }
+
+[System.Serializable]
+public class AddScoreEvent : UnityEvent<int> {}

@@ -208,6 +208,8 @@ GameObject:
   - component: {fileID: 9013004487246905076}
   - component: {fileID: 632338763657624729}
   - component: {fileID: 15307687945113966}
+  - component: {fileID: 8107758798311283417}
+  - component: {fileID: 4957104766155516433}
   m_Layer: 0
   m_Name: New Sword
   m_TagString: Untagged
@@ -246,6 +248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnEquippedMagnitude: 50
   ThrowForce: 3
+  wielderChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &632338763657624729
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -287,3 +292,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 25
   AttackSpeed: 0.5
+  lifeStealWithSword: 0
+  lifeStealFactor: 1
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8107758798311283417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859148017435154634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7851db7cf72d12141a1064bf892f5560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldAmount: 0
+--- !u!114 &4957104766155516433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859148017435154634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87916004d9abed47ad60000794ecdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addSpeed: 2.5
