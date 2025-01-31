@@ -322,11 +322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: healthFillColor.b
-      value: 0
+      value: 0.22513232
       objectReference: {fileID: 0}
     - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: healthFillColor.g
-      value: 0
+      value: 0.13342315
       objectReference: {fileID: 0}
     - target: {fileID: 8673448051452970976, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: healthFillColor.r

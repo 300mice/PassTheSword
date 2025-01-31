@@ -713,15 +713,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: healthFillColor.b
-      value: 0.11306906
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
-      propertyPath: healthFillColor.g
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: healthFillColor.g
+      value: 0.7573666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414756442576998176, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: healthFillColor.r
-      value: 0
+      value: 0.31671154
       objectReference: {fileID: 0}
     - target: {fileID: 7556719973396251969, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: maxHealth
