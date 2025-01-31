@@ -51,7 +51,10 @@ public class Indicator : MonoBehaviour
         if (indicatorImage)
         {
             //indicatorImage.color = new Color(color.r, color.g, color.b, indicatorImage.color.a);
-            indicatorMaterial.SetColor("_Inner_Colour", Color.magenta);
+            Color fillColor = healthComponent.GetComponentInChildren<HealthBar>().healthFillColor;
+            indicatorMaterial.SetColor("_Inner_Colour", fillColor);
+            indicatorMaterial.SetColor("_BG_Colour", fillColor * 0.5f);
+            indicatorMaterial.SetColor("_Border_Colour", fillColor * 0.25f);
         }
     }
 
