@@ -62,13 +62,13 @@ public class FlipXManager : MonoBehaviour
     {
 
         sprite.material.SetFloat("_IsFacingLeft", currentFacing > 0? 0 : 1);
-        sprite.flipX = currentFacing < 0;
+        //sprite.flipX = currentFacing < 0;
     }
 
     public void FlipX(int facing)
     {
 
         sprite.material.SetFloat("_IsFacingLeft", facing > 0 ? 0 : 1);
-        sprite.flipX = facing < 0;
+        //sprite.flipX = facing < 0;
     }
 }
