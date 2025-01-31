@@ -262,11 +262,17 @@ public class AIBrain : MonoBehaviour
         OnStateChange.Invoke(CurrentState);
         if (CurrentState == BrainState.Running)
         {
-            instance.Play();
+            if (instance)
+            {
+                instance.Play();
+            }
         }
         else
         {
-            instance.Stop();
+            if (instance)
+            {
+                instance.Stop();
+            }
         }
         return true;
     }
