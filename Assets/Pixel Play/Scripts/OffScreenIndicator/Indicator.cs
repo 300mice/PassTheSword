@@ -100,8 +100,7 @@ public class Indicator : MonoBehaviour
     void OnHealthChanged()
     {
         //indicatorImage.fillAmount = healthComponent.health / healthComponent.GetMaxHealth();
-        float newHealth = healthComponent.health / healthComponent.GetMaxHealth() -0.50001f;
-        Debug.Log("New health: " + newHealth);
+        float newHealth = healthComponent.health / healthComponent.GetMaxHealth();
         indicatorMaterial.SetFloat("_Health_Value", newHealth);
     }
 
