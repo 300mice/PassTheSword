@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent onPartyDeath;
     public UnityEvent onGameOver;
     public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
-    private int wave = 0;
+    
     public Sword Sword { get; private set; }
 
     public static GameManager Instance
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         Sword = GameObject.Find("Sword").GetComponent<Sword>();
         SpawnParty();
-        StartCoroutine(SpawnWave());
+        StartCoroutine(SpawnWave(8, 8, 0, 0.25f));
     }
 
     void SpawnEnemy(AIBrain Enemy)
@@ -57,33 +57,31 @@ public class GameManager : MonoBehaviour
         onEnemyDeath.Invoke();
     }
 
-    IEnumerator SpawnWave()
+    IEnumerator SpawnWave(int numEnemies, float delay, int enemyIndex, float spawnDelay)
     {
-        float waveTimer = 8.0f;
+        int wave = 0;
         while (true)
         {
-            for (int i = 0; i < 9 + Mathf.Clamp(wave, 0, 6); i++)
+            for (int i = 0; i < numEnemies + Mathf.Clamp(wave, 0, 6); i++)
             {
-                SpawnEnemy(EnemyTypes[0]);
-                yield return new WaitForSeconds(0.25f);
+                SpawnEnemy(EnemyTypes[Mathf.Clamp(enemyIndex, 0, EnemyTypes.Length - 1)]);
+                yield return new WaitForSeconds(spawnDelay);
 
             }
 
-            if (wave % 5 == 0)
+            if (wave == 4)
             {
-                for (int i = 0; i < -2 + wave; i++)
-                {
-                    SpawnEnemy(EnemyTypes[Mathf.Clamp(1, 0, EnemyTypes.Length - 1)]);
-                    yield return new WaitForSeconds(0.25f);
-                }
+                StartCoroutine(SpawnWave(1, Mathf.Clamp(delay + 7, 2, 20), enemyIndex + 1, 1.0f));
             }
-
-            yield return new WaitForSeconds(waveTimer);
-            waveTimer = Mathf.Clamp(waveTimer - 0.20f, 4, 20);
+            
+            yield return new WaitForSeconds(delay);
+            delay = Mathf.Clamp(delay - 0.20f, 4, 20);
             wave++;
         }
 
     }
+    
+    
 
     void SpawnParty()
     {
