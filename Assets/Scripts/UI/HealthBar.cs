@@ -27,7 +27,7 @@ public class HealthBar : MonoBehaviour
         if (sprite)
         {
             sprite.material = new Material(sprite.material);
-            sprite.material.SetColor("_Outline_Colour", healthFillColor);
+            sprite.material.SetColor("_Outline_Color", healthFillColor);
         }
     }
     
