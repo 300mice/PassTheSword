@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bf8e6f72-a418-4ffe-b474-1bd347c359e9}">
+		<property name="assetPath">
+			<value>Swooshes, Whoosh, Organic, Wind, Soft, Short SND55382.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.94645833333333329</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{412a6f38-08fb-47dd-9bf8-a70e0cd9efb8}</destination>
+		</relationship>
+	</object>
+</objects>
