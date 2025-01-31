@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent onPartyDeath;
     public UnityEvent onGameOver;
     public List<AIBrain> CurrentBrains { get; private set; } = new List<AIBrain>();
-
+    private int wave = 0;
     public Sword Sword { get; private set; }
 
     public static GameManager Instance
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy(AIBrain Enemy)
     {
-        AIBrain NewEnemy = Instantiate(Enemy, new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-15f, 15f)),
+        AIBrain NewEnemy = Instantiate(Enemy, new Vector3(Random.Range(-20f, 20f), 0f, Random.Range(-20f, 20f)),
             Quaternion.identity);
         NewEnemy.GetComponent<HealthComponent>().HasDied.AddListener(EnemyDied);
         CurrentBrains.Add(NewEnemy);
@@ -59,18 +59,29 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        float waveTimer = 10.0f;
+        float waveTimer = 8.0f;
         while (true)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9 + Mathf.Clamp(wave, 0, 6); i++)
             {
-                SpawnEnemy(EnemyTypes[Random.Range(0, EnemyTypes.Length)]);
-                yield return new WaitForSeconds(0.5f);
+                SpawnEnemy(EnemyTypes[0]);
+                yield return new WaitForSeconds(0.25f);
 
             }
 
+            if (wave % 5 == 0)
+            {
+                for (int i = 0; i < -2 + wave; i++)
+                {
+                    SpawnEnemy(EnemyTypes[1]);
+                    yield return new WaitForSeconds(0.25f);
+
+                }
+            }
+
             yield return new WaitForSeconds(waveTimer);
-            waveTimer = Mathf.Clamp(waveTimer - 0.5f, 2, 20);
+            waveTimer = Mathf.Clamp(waveTimer - 0.20f, 4, 20);
+            wave++;
         }
 
     }
