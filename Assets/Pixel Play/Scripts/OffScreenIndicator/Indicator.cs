@@ -9,6 +9,8 @@ public class Indicator : MonoBehaviour
     [SerializeField] private IndicatorType indicatorType;
     private Image indicatorImage;
     private Text distanceText;
+    private HealthComponent healthComponent;
+    private Material indicatorMaterial;
 
     /// <summary>
     /// Gets if the game object is active in hierarchy.
@@ -36,6 +38,8 @@ public class Indicator : MonoBehaviour
     {
         indicatorImage = transform.GetComponent<Image>();
         distanceText = transform.GetComponentInChildren<Text>();
+        indicatorMaterial = new Material(indicatorImage.material);
+        indicatorImage.material = indicatorMaterial;
     }
 
     /// <summary>
@@ -72,6 +76,32 @@ public class Indicator : MonoBehaviour
         {
             distanceText.rectTransform.rotation = rotation;
         }
+    }
+
+    public void SetHealthComponent(HealthComponent newhealthComponent)
+    {
+        if (healthComponent && healthComponent != newhealthComponent)
+        {
+            healthComponent.OnHealthChanged.RemoveListener(OnHealthChanged);
+        }
+        else if (healthComponent == newhealthComponent)
+        {
+            return;
+        }
+        healthComponent = newhealthComponent;
+        if (healthComponent)
+        {
+            healthComponent.OnHealthChanged.AddListener(OnHealthChanged); 
+        }
+        OnHealthChanged();
+    }
+
+    void OnHealthChanged()
+    {
+        //indicatorImage.fillAmount = healthComponent.health / healthComponent.GetMaxHealth();
+        float newHealth = healthComponent.health / healthComponent.GetMaxHealth() -0.50001f;
+        Debug.Log("New health: " + newHealth);
+        indicatorMaterial.SetFloat("_Health_Value", newHealth);
     }
 
     /// <summary>
