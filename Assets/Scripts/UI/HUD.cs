@@ -25,7 +25,7 @@ public class HUD : MonoBehaviour
         float score = GameManager.Instance.score;
         retry.SetActive(true);
         scoreText.text = score.ToString();
-        Time.timeScale = 0;
+        Time.timeScale = 0.0f;
         
     }
 

@@ -51,6 +51,10 @@ public class HealthComponent : MonoBehaviour
 
     public bool IsDead()
     {
+        if (!bAlive)
+        {
+            return true;
+        }
         if (health <= 0)
         {
             HasDied.Invoke(this);
