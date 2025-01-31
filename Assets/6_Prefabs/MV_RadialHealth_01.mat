@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MV_BGOffscreen_01
+  m_Name: MV_RadialHealth_01
   m_Shader: {fileID: -6465566751694194690, guid: 648029dfd28ac2740ac0ab3e6b7ff841, type: 3}
   m_Parent: {fileID: 2100000, guid: 6e4d01da6749b7d47bf9f487e917328c, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -29,8 +29,8 @@ Material:
     m_Floats:
     - _Health_Value: 0.4999999
     m_Colors:
-    - _Border_Colour: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
-    - _Inner_Colour: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+    - _Border_Colour: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+    - _Inner_Colour: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4044137687074525016

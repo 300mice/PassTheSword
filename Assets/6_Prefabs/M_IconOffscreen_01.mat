@@ -109,7 +109,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Health_Value: 0.098
+    - _Health_Value: 0.4999999
     - _Metallic: 0
     - _Multi: 41.12
     - _OcclusionStrength: 1
@@ -126,7 +126,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BG_Colour: {r: 0.319, g: 0.319, b: 0.319, a: 1}
+    - _BG_Colour: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Border_Colour: {r: 0.4245283, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
