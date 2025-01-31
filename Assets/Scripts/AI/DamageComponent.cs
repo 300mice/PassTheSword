@@ -75,12 +75,4 @@ public class DamageComponent : MonoBehaviour
     {
         StartCoroutine(DealDamage(brain.CurrentAction.Target));
     }
-
-    void OnDrawGizmos()
-    {
-        if (brain)
-        {
-            Handles.Label(transform.position, brain.CurrentAction.ActionType.ToString()); 
-        }
-    }
 }
