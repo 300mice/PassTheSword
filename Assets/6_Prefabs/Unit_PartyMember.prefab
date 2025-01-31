@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: minRunAnimSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1778609635380304951, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2168440146599067760, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.0193818
@@ -585,6 +589,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -876546973899608171, guid: ca2ed216f98028c4dae6c5224a952b3c, type: 3}
     - target: {fileID: 4863995680992049409, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 822ceebd75161c74db4affed76247d67, type: 3}
+    - target: {fileID: 4863995680992049409, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 9c45f01c3010b0d4cabe92dc01cc08ab, type: 2}
@@ -629,9 +637,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6082170678485659923, guid: b0fa42a1f13dd1f4987f73f155df1498, type: 3}
     - target: {fileID: 7597629754382636575, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 434df7386e1bd8f448b8760917cb8c40, type: 3}
+    - target: {fileID: 7597629754382636575, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 1f9e9487f7b4b1c45976a17e1c19a333, type: 2}
+    - target: {fileID: 7597629754382636575, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597629754382636575, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7656301919442974698, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -647,6 +667,14 @@ PrefabInstance:
     - target: {fileID: 8015561986376998236, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: lifeStealWithSword
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230145966742628081, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230145966742628081, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8475907032561129092, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       propertyPath: EventReference.Path
@@ -713,12 +741,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5123764256687789054, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8108019892172883483}
+    - targetCorrespondingSourceObject: {fileID: 1217918789428617982, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 61360735789227241}
   m_SourcePrefab: {fileID: 100100000, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
 --- !u!4 &49291572373883056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2168440146599067760, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
   m_PrefabInstance: {fileID: 2213737742834059456}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1035313412148914750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1217918789428617982, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}
+  m_PrefabInstance: {fileID: 2213737742834059456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &61360735789227241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035313412148914750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  needBoxIndicator: 1
+  needArrowIndicator: 1
+  needDistanceText: 0
+  indicator: {fileID: 0}
 --- !u!1 &6459150113394121534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5123764256687789054, guid: ea62b967603e4f34c9b47b319eadfe4e, type: 3}

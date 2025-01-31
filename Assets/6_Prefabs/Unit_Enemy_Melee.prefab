@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 438576177680078071, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 703360980384552304, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: corpse
       value: 
@@ -184,6 +188,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy_Melee
       objectReference: {fileID: 0}
+    - target: {fileID: 6717300206363177409, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1c0303c6d7e9bc140a33af77ee318604, type: 3}
     - target: {fileID: 6903362031672266573, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -228,6 +236,10 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: 1305205688
       objectReference: {fileID: 0}
+    - target: {fileID: 7822643259887398449, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7951662152876651550, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -244,6 +256,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8631415585853775583, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 517d5fbdf2cea5747a7cee273e60e48b, type: 3}
     - target: {fileID: 8631415585853775583, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
       propertyPath: m_Material
       value: 
@@ -267,6 +283,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3456326744770876417, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     - {fileID: 3073375482781081774, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+    - {fileID: 913419585002021599, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
+    - {fileID: 61360735789227241, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5925169168725239090, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
     - {fileID: 6424269173277214687, guid: 089c1c7de79938746a2e109fb2eaf118, type: 3}
