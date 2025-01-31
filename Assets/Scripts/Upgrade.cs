@@ -26,7 +26,7 @@ public class Upgrade : MonoBehaviour
 
     public void AddSpeed()
     {
-        FindAnyObjectByType<AddSpeed>().addSpeed += 0.5f;
+        FindAnyObjectByType<AddSpeed>().addSpeed += 2.75f;
         OnUpgrade.Invoke();
     }
 }

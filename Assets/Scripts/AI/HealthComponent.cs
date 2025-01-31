@@ -39,7 +39,7 @@ public class HealthComponent : MonoBehaviour
             if (shield > 0)
             {
                 newDelta = UpdateShield(delta);
-                if (delta > 0)
+                if (newDelta >= 0)
                 {
                     return health;
                 }

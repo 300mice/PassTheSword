@@ -60,3 +60,11 @@ MonoBehaviour:
   onGameOver:
     m_PersistentCalls:
       m_Calls: []
+  onAddScore:
+    m_PersistentCalls:
+      m_Calls: []
+  onLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
+  requiredXP: 500
+  level: 0

@@ -55,7 +55,7 @@ public class HealthBar : MonoBehaviour
             }
             else
             {
-                StartCoroutine(HealthbarFlash(Color.white));
+                StartCoroutine(HealthbarFlash(Color.grey));
             }
             
         }
